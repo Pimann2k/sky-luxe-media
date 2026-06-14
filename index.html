@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drone Photography Brisbane | Aerial Video & Real Estate Media — SkyLuxe Media</title>
+<meta name="description" content="SkyLuxe Media is a Brisbane drone photography and aerial video studio. Real estate photography, construction progress, Airbnb visuals and cinematic films. CASA-accredited, 24–48h delivery. From $250.">
+<meta property="og:title" content="SkyLuxe Media — Aerial Photography & Film, Brisbane">
+<meta property="og:description" content="Cinematic drone photography and film for property, projects and places. CASA-accredited & insured. Delivery in 24–48 hours.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_AU">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"SkyLuxe Media",
+"description":"Drone photography and aerial video studio in Brisbane. Real estate media, construction progress, Airbnb content and cinematic aerial film.",
+"email":"hello@skyluxemedia.com.au","areaServed":"Brisbane, Queensland, Australia",
+"address":{"@type":"PostalAddress","addressLocality":"Brisbane","addressRegion":"QLD","addressCountry":"AU"},
+"priceRange":"$250-$550+"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How much does drone photography cost in Brisbane?","acceptedAnswer":{"@type":"Answer","text":"SkyLuxe Media packages start from $250 for edited aerial photos and a vertical reel. The Property Social Pack starts from $350 and cinematic aerial film packages start from $550."}},
+{"@type":"Question","name":"How quickly are photos and videos delivered?","acceptedAnswer":{"@type":"Answer","text":"Edited galleries are delivered online within 24–48 hours of the shoot."}},
+{"@type":"Question","name":"Are you licensed to fly drones commercially?","acceptedAnswer":{"@type":"Answer","text":"Yes. SkyLuxe Media operates as a CASA-accredited and insured drone operator, with airspace, weather and site safety checks before every flight."}},
+{"@type":"Question","name":"What areas do you service?","acceptedAnswer":{"@type":"Answer","text":"We service Greater Brisbane and surrounding South East Queensland areas. Travel further afield can be arranged on request."}}]}
+</script>
+<style>
+:root{
+  --paper:#F5F3EF;
+  --paper-2:#ECE9E2;
+  --ink:#101113;
+  --ink-2:#3C3F44;
+  --bronze:#9A7843;
+  --bronze-deep:#7A5D30;
+  --white:#FFFFFF;
+  --line:rgba(16,17,19,.14);
+  --fd:'Marcellus',serif;
+  --fb:'Figtree',sans-serif;
+  --shadow:0 14px 40px rgba(18,22,28,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--fb);font-size:17px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+::selection{background:rgba(154,120,67,.28)}
+img,svg,canvas{display:block;max-width:100%}
+button,input,select,textarea{font-family:inherit}
+
+#grain{
+  position:fixed;inset:-50%;z-index:80;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity:.04;animation:grain 8s steps(10) infinite;
+}
+@keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(2%,3%)}40%{transform:translate(3%,-3%)}60%{transform:translate(2%,1%)}80%{transform:translate(1%,-2%)}}
+
+.container{width:min(1200px,92%);margin:0 auto}
+section{position:relative}
+.pad{padding:110px 0}
+
+/* ---------- typography ---------- */
+h1,h2,h3{font-family:var(--fd);font-weight:400;line-height:1.12;letter-spacing:.005em}
+h1{font-size:clamp(2.7rem,6.4vw,5rem)}
+h2{font-size:clamp(2rem,4.2vw,3.2rem)}
+h3{font-size:1.3rem}
+.kicker{
+  display:inline-flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;
+  font-size:.72rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--bronze-deep);
+}
+.kicker::before{content:"";width:34px;height:2px;background:var(--bronze)}
+.lead{font-size:1.12rem;color:var(--ink-2);max-width:62ch;font-weight:500}
+.section-head{max-width:760px;margin-bottom:3.2rem}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  font-weight:700;font-size:.95rem;letter-spacing:.04em;
+  padding:1.05rem 2.3rem;border-radius:4px;text-decoration:none;cursor:pointer;border:none;
+  transition:transform .25s,box-shadow .25s,background .25s,color .25s;
+}
+.btn-bronze{background:var(--bronze);color:#fff;box-shadow:0 8px 24px rgba(122,93,48,.3)}
+.btn-bronze:hover{background:var(--bronze-deep);transform:translateY(-2px);box-shadow:0 12px 30px rgba(122,93,48,.4)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:#26282C;transform:translateY(-2px)}
+.btn-line{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.85)}
+.btn-line:hover{background:#fff;color:var(--ink);transform:translateY(-2px)}
+.btn-line-dark{background:transparent;color:var(--ink);border:1.5px solid rgba(16,17,19,.5)}
+.btn-line-dark:hover{border-color:var(--ink);background:var(--ink);color:#fff;transform:translateY(-2px)}
+
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .35s,box-shadow .35s,backdrop-filter .35s;
+}
+.nav.scrolled{background:rgba(245,243,239,.88);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
+.nav-in{
+  width:min(1200px,92%);margin:0 auto;height:78px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-family:var(--fd);font-size:1.3rem;letter-spacing:.22em;text-transform:uppercase;
+  color:#fff;text-decoration:none;display:flex;align-items:center;gap:.55rem;transition:color .35s;
+}
+.nav.scrolled .logo{color:var(--ink)}
+.logo i{width:8px;height:8px;border-radius:50%;background:radial-gradient(circle,#E8C98A,var(--bronze))}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{
+  color:rgba(255,255,255,.92);text-decoration:none;font-size:.88rem;font-weight:600;
+  transition:color .3s;position:relative;
+}
+.nav.scrolled .nav-links a{color:var(--ink-2)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--bronze);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:#fff}
+.nav.scrolled .nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:1rem}
+.nav-cta .btn{padding:.62rem 1.4rem;font-size:.82rem}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2.5px;background:#fff;margin:5px 0;border-radius:2px;transition:background .35s}
+.nav.scrolled .burger span{background:var(--ink)}
+.mmenu{
+  display:none;position:fixed;top:78px;left:0;right:0;z-index:99;
+  background:rgba(245,243,239,.98);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);padding:1.2rem 5%;
+}
+.mmenu.open{display:block}
+.mmenu a{display:block;color:var(--ink);text-decoration:none;font-family:var(--fd);font-size:1.15rem;padding:.85rem 0;border-bottom:1px solid var(--line)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:#15171B}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%}
+.hero-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to top,rgba(13,14,17,.82) 0%,rgba(13,14,17,.34) 42%,rgba(13,14,17,.12) 70%,rgba(13,14,17,.3) 100%);
+}
+.hero-in{position:relative;z-index:2;width:min(1200px,92%);margin:0 auto;padding:0 0 9vh;color:#fff}
+.hero .kicker{color:#E8C98A}
+.hero .kicker::before{background:#E8C98A}
+.hero h1{max-width:16ch;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.hero p{
+  margin-top:1.3rem;font-size:1.15rem;font-weight:500;max-width:54ch;
+  color:rgba(255,255,255,.94);text-shadow:0 1px 14px rgba(0,0,0,.4);
+}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.2rem}
+.hero-trust{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:2.4rem}
+.hero-trust span{
+  font-size:.78rem;font-weight:700;color:#fff;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);
+  padding:.5rem 1.05rem;border-radius:999px;backdrop-filter:blur(8px);
+  display:inline-flex;align-items:center;gap:.5rem;
+}
+.hero-trust svg{width:13px;height:13px;color:#E8C98A}
+.scrolldown{
+  position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;
+  color:rgba(255,255,255,.8);font-size:.62rem;font-weight:700;letter-spacing:.36em;text-transform:uppercase;
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+}
+.scrolldown::after{content:"";width:1.5px;height:30px;background:rgba(255,255,255,.7);animation:drop 2.2s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- services ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.4rem}
+.svc{
+  background:var(--white);border:1px solid var(--line);border-radius:10px;
+  padding:2.2rem;box-shadow:var(--shadow);
+  transition:transform .3s,box-shadow .3s;
+}
+.svc:hover{transform:translateY(-6px);box-shadow:0 22px 54px rgba(18,22,28,.18)}
+.svc .ic{
+  width:52px;height:52px;border-radius:10px;margin-bottom:1.4rem;
+  background:linear-gradient(150deg,#F2E7D2,#E2CDA4);
+  display:flex;align-items:center;justify-content:center;color:var(--bronze-deep);
+}
+.svc .ic svg{width:24px;height:24px}
+.svc h3{margin-bottom:.6rem}
+.svc p{color:var(--ink-2);font-size:.98rem}
+.svc .more{
+  display:inline-block;margin-top:1.1rem;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--bronze-deep);text-decoration:none;border-bottom:2px solid rgba(154,120,67,.4);padding-bottom:.2rem;
+}
+.svc .more:hover{border-color:var(--bronze-deep)}
+
+/* ---------- cinematic story bands ---------- */
+.band{
+  position:relative;min-height:78vh;display:flex;align-items:center;overflow:hidden;
+  background:#191B1F;color:#fff;
+}
+.band-media{position:absolute;inset:-12% 0;will-change:transform}
+.band-study{position:absolute;inset:0;filter:saturate(.65) contrast(1.05)}
+.band-study::before{content:"";position:absolute;inset:0;filter:blur(24px);transform:scale(1.1)}
+.bs-dusk::before{background:
+  radial-gradient(ellipse 40% 30% at 30% 64%,rgba(216,185,138,.42),transparent 65%),
+  radial-gradient(ellipse 60% 50% at 70% 30%,rgba(94,104,118,.7),transparent 70%),
+  linear-gradient(180deg,#2A3038 0%,#48505A 42%,#5E584E 62%,#17181B 80%,#0F1012 100%)}
+.bs-coast::before{background:
+  radial-gradient(ellipse 58% 38% at 60% 36%,rgba(170,190,200,.65),transparent 70%),
+  linear-gradient(180deg,#3A4750 0%,#647884 40%,#92A4AA 54%,#26343A 72%,#11181C 100%)}
+.band-scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,12,14,.78) 0%,rgba(11,12,14,.45) 52%,rgba(11,12,14,.2) 100%)}
+.band-in{position:relative;z-index:2;width:min(1200px,92%);margin:0 auto;padding:90px 0}
+.band .kicker{color:#E8C98A}
+.band .kicker::before{background:#E8C98A}
+.band h2{color:#fff;max-width:16ch;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+.band p{margin-top:1.2rem;font-size:1.08rem;font-weight:500;max-width:50ch;color:rgba(255,255,255,.92)}
+.band .btn{margin-top:1.8rem}
+.band .planewrap{position:absolute;right:4%;top:50%;transform:translateY(-50%);z-index:1;perspective:1000px;pointer-events:none}
+.band .plane{
+  width:15vw;max-width:230px;height:48vh;max-height:420px;
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 50px 100px rgba(0,0,0,.55);
+  background:linear-gradient(165deg,rgba(190,200,208,.3),rgba(120,132,142,.14) 50%,rgba(60,68,76,.3));
+  backdrop-filter:blur(3px);
+  transform:rotateY(-24deg) translateZ(40px);
+  position:relative;overflow:hidden;
+}
+.band .plane::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(118deg,transparent 30%,rgba(255,255,255,.18) 48%,transparent 62%);
+  background-size:240% 100%;animation:psheen 12s ease-in-out infinite alternate;
+}
+@keyframes psheen{from{background-position:0% 0}to{background-position:100% 0}}
+.slot-note{
+  position:absolute;right:18px;top:14px;z-index:3;
+  font-size:.56rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.4);
+}
+
+/* ---------- trust ---------- */
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
+.trust{
+  background:var(--white);border:1px solid var(--line);border-radius:10px;
+  padding:1.8rem;box-shadow:var(--shadow);
+}
+.trust b{display:flex;align-items:center;gap:.7rem;font-family:var(--fd);font-weight:400;font-size:1.12rem;margin-bottom:.5rem}
+.trust b svg{width:20px;height:20px;color:var(--bronze-deep);flex:none}
+.trust p{color:var(--ink-2);font-size:.94rem}
+
+/* ---------- packages ---------- */
+#packages{background:var(--paper-2)}
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem;align-items:stretch}
+.pack{
+  background:var(--white);border:1px solid var(--line);border-radius:10px;
+  padding:2.4rem;display:flex;flex-direction:column;position:relative;
+  box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;
+}
+.pack:hover{transform:translateY(-6px);box-shadow:0 22px 54px rgba(18,22,28,.18)}
+.pack.feat{border:2px solid var(--bronze);box-shadow:0 22px 60px rgba(122,93,48,.22)}
+.pack .tag{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--bronze);color:#fff;font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  padding:.4rem 1.2rem;border-radius:999px;white-space:nowrap;
+}
+.pack .pn{font-size:.85rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);margin-bottom:.5rem}
+.pack .pp{font-family:var(--fd);font-size:2.6rem;margin-bottom:1.3rem}
+.pack .pp span{font-size:.95rem;font-family:var(--fb);font-weight:600;color:var(--ink-2)}
+.pack ul{list-style:none;flex:1;margin-bottom:1.8rem}
+.pack li{display:flex;gap:.7rem;color:var(--ink-2);font-size:.98rem;font-weight:500;padding:.42rem 0;align-items:flex-start}
+.pack li svg{width:17px;height:17px;color:var(--bronze-deep);flex:none;margin-top:4px}
+.pack-note{margin-top:2rem;text-align:center;color:var(--ink-2);font-size:.92rem;font-weight:500}
+
+/* ---------- portfolio ---------- */
+.port-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+.tile{
+  position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/3;cursor:pointer;
+  box-shadow:var(--shadow);transition:transform .35s,box-shadow .35s;background:#191B1F;
+}
+.tile:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(18,22,28,.24)}
+.tile .art{position:absolute;inset:0;transition:transform .55s;filter:saturate(.7)}
+.tile:hover .art{transform:scale(1.06)}
+.t1{background:linear-gradient(180deg,#8E959E 0%,#CFC8BB 44%,#6E6A60 66%,#23211E 100%)}
+.t2{background:linear-gradient(180deg,#94989C 0%,#C2C4C6 40%,#5C6064 70%,#1E2022 100%)}
+.t3{background:linear-gradient(180deg,#647884 0%,#92A4AA 46%,#33444C 72%,#11181C 100%)}
+.t4{background:linear-gradient(180deg,#C2B294 0%,#A89878 44%,#5E5544 70%,#211E18 100%)}
+.t5{background:linear-gradient(180deg,#48505A 0%,#5E584E 50%,#17181B 100%)}
+.t6{background:linear-gradient(180deg,#303A46 0%,#48525E 48%,#0F1216 100%)}
+.tile .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,9,11,.85) 0%,rgba(8,9,11,.2) 48%,transparent 70%)}
+.tile .meta{position:absolute;left:1.3rem;right:1.3rem;bottom:1.15rem;z-index:2}
+.tile .meta small{display:block;font-size:.62rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:#E8C98A;margin-bottom:.25rem}
+.tile .meta h3{font-size:1.08rem;color:#fff}
+
+/* ---------- process ---------- */
+.steps{position:relative;max-width:720px;margin:0 auto}
+.steps::before{content:"";position:absolute;left:27px;top:16px;bottom:16px;width:2px;background:rgba(154,120,67,.25)}
+.steps .sline{position:absolute;left:27px;top:16px;width:2px;height:0%;background:var(--bronze);transition:height .2s linear}
+.step{position:relative;display:flex;gap:1.6rem;padding:1.3rem 0;align-items:flex-start}
+.step .n{
+  flex:none;width:56px;height:56px;border-radius:50%;z-index:1;
+  background:var(--white);border:2px solid rgba(154,120,67,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fd);font-size:1.2rem;color:var(--bronze-deep);
+  box-shadow:var(--shadow);transition:border-color .4s,box-shadow .4s;
+}
+.step.on .n{border-color:var(--bronze);box-shadow:0 0 0 6px rgba(154,120,67,.14)}
+.step h3{margin-bottom:.3rem}
+.step p{color:var(--ink-2);font-size:.98rem;max-width:52ch}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;gap:3rem;align-items:center}
+@media(min-width:900px){.about-grid{grid-template-columns:1.1fr .9fr}}
+.stat-row{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.stat{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:1rem 1.5rem;box-shadow:var(--shadow)}
+.stat b{font-family:var(--fd);display:block;font-size:1.5rem;color:var(--bronze-deep)}
+.stat span{font-size:.82rem;font-weight:600;color:var(--ink-2)}
+.about-visual{
+  position:relative;aspect-ratio:4/5;max-width:420px;margin:0 auto;border-radius:10px;overflow:hidden;
+  box-shadow:0 30px 70px rgba(18,22,28,.3);
+  background:linear-gradient(180deg,#8E959E 0%,#CFC8BB 46%,#56534C 70%,#1B1A18 100%);
+  filter:saturate(.7);
+}
+.about-visual::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 30% at 65% 30%,rgba(240,232,214,.5),transparent 70%),
+  linear-gradient(to top,rgba(8,9,11,.5),transparent 50%);
+}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:820px;margin:0 auto}
+.faq details{
+  background:var(--white);border:1px solid var(--line);border-radius:10px;
+  margin-bottom:.9rem;box-shadow:var(--shadow);overflow:hidden;
+}
+.faq summary{
+  cursor:pointer;list-style:none;padding:1.4rem 1.8rem;
+  font-family:var(--fd);font-size:1.12rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--fb);font-weight:400;font-size:1.5rem;color:var(--bronze-deep);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 1.8rem 1.5rem;color:var(--ink-2);font-size:.99rem}
+
+/* ---------- contact ---------- */
+#contact{background:#15171B;color:#fff}
+#contact .kicker{color:#E8C98A}
+#contact .kicker::before{background:#E8C98A}
+#contact h2{color:#fff}
+#contact .lead{color:rgba(255,255,255,.85)}
+.contact-grid{display:grid;gap:1.4rem;margin-top:3rem}
+@media(min-width:900px){.contact-grid{grid-template-columns:1.25fr .75fr;align-items:start}}
+.cpanel{background:#fff;border-radius:10px;padding:2.2rem;color:var(--ink);box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.cpanel.darklist{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(10px)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.fgrid .full{grid-column:1/-1}
+.field label{display:block;font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);margin-bottom:.4rem}
+.field input,.field select,.field textarea{
+  width:100%;background:#fff;border:1.5px solid rgba(16,17,19,.25);border-radius:7px;color:var(--ink);
+  padding:.85rem 1rem;font-size:.97rem;font-weight:500;
+  transition:border-color .25s,box-shadow .25s;-webkit-appearance:none;appearance:none;
+}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23101113' stroke-width='2.2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--bronze);box-shadow:0 0 0 3px rgba(154,120,67,.2)}
+.field ::placeholder{color:rgba(60,63,68,.55)}
+.ok-msg{display:none;margin-top:1rem;padding:.95rem 1.2rem;border-radius:8px;background:#EAF4EC;border:1.5px solid #4F8E5F;color:#235C32;font-weight:600;font-size:.92rem}
+.ok-msg.show{display:block}
+.crow{padding:1.05rem 0;border-bottom:1px solid rgba(255,255,255,.16)}
+.crow:last-child{border-bottom:none}
+.crow b{display:block;font-size:.64rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.3rem}
+.crow a,.crow span{color:#fff;font-size:1rem;font-weight:500;text-decoration:none}
+.crow a:hover{color:#E8C98A}
+
+/* ---------- footer ---------- */
+footer{background:#0F1114;color:rgba(255,255,255,.75);padding:2.6rem 0}
+.foot-in{width:min(1200px,92%);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.2rem}
+footer .logo{color:#fff;font-size:1.05rem}
+footer p{font-size:.86rem;font-weight:500}
+.flinks{display:flex;gap:1.8rem}
+.flinks a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.86rem;font-weight:600;transition:color .25s}
+.flinks a:hover{color:#E8C98A}
+
+/* ---------- reveals ---------- */
+.rev{opacity:0;transform:translateY(34px)}
+.rev.in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.65,.3,1),transform .8s cubic-bezier(.2,.65,.3,1)}
+.rev.d1.in{transition-delay:.08s}.rev.d2.in{transition-delay:.16s}.rev.d3.in{transition-delay:.24s}.rev.d4.in{transition-delay:.32s}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .rev{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+@media(max-width:880px){
+  .nav-links,.nav-cta .btn{display:none}
+  .burger{display:block}
+  .band .planewrap{display:none}
+  .fgrid{grid-template-columns:1fr}
+  .pad{padding:80px 0}
+}
+</style>
+</head>
+<body>
+
+<div id="grain" aria-hidden="true"></div>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a class="logo" href="#top"><i></i>SkyLuxe</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-bronze" href="#contact">Book a Shoot</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mmenu" id="mmenu">
+  <a href="#services">Services</a><a href="#packages">Packages</a><a href="#portfolio">Portfolio</a>
+  <a href="#process">Process</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-in">
+    <span class="kicker">Drone photography &amp; aerial film · Brisbane</span>
+    <h1>Your property, seen the way it deserves.</h1>
+    <p>SkyLuxe Media captures homes, projects and places from above — cinematic aerial photography and film for real estate agents, builders, hosts and brands across Brisbane.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-bronze" href="#contact">Book a Shoot</a>
+      <a class="btn btn-line" href="#services">Explore Services</a>
+    </div>
+    <div class="hero-trust">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/></svg>CASA-accredited &amp; insured</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>24–48h delivery</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.4"/></svg>4K photo · film · reels</span>
+    </div>
+  </div>
+  <div class="scrolldown" aria-hidden="true">Scroll</div>
+</header>
+
+<main>
+
+<!-- ================= SERVICES ================= -->
+<section class="pad" id="services" aria-labelledby="services-h">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker rev">What we capture</span>
+      <h2 id="services-h" class="rev d1">Five ways to see your world from above</h2>
+      <p class="lead rev d2">Photography, cinematic video and social reels — whatever tells the story of your place best.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc rev">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg></div>
+        <h3>Real Estate Drone Photography</h3>
+        <p>Aerial images that show land size, street position, views and lifestyle — the qualities buyers pay for but can't see from the kerb.</p>
+        <a class="more" href="#packages">From $250</a>
+      </article>
+      <article class="svc rev d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="14" height="14" rx="2.5"/><path d="M16.5 10l5-3v10l-5-3"/></svg></div>
+        <h3>Property Films &amp; Reels</h3>
+        <p>Short cinematic videos for listings, Instagram and Facebook — built to stop the scroll and sell the feeling of home.</p>
+        <a class="more" href="#packages">Social-ready</a>
+      </article>
+      <article class="svc rev d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M6 21V8l6-4 6 4v13"/><path d="M9 21v-4h6v4"/></svg></div>
+        <h3>Construction Progress Media</h3>
+        <p>Monthly aerial flyovers from matched waypoints — a clean visual record of your project rising, for clients and investors.</p>
+        <a class="more" href="#contact">Monthly programs</a>
+      </article>
+      <article class="svc rev d3">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3l3-7 4 14 3-7h7"/></svg></div>
+        <h3>Airbnb &amp; Short-Stay Visuals</h3>
+        <p>The headland, the deck, the walk to the water — we capture the escape your guests are dreaming about before they book.</p>
+        <a class="more" href="#packages">Photos + reel</a>
+      </article>
+      <article class="svc rev d4">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6 4 4 6-7"/><path d="M14 8h6v6"/></svg></div>
+        <h3>Business &amp; Brand Promotion</h3>
+        <p>Venues, farms, events and coastline — aerial perspective gives a place its true scale, and an audience a reason to come.</p>
+        <a class="more" href="#contact">Cut for every platform</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STORY BAND 1 ================= -->
+<section class="band" aria-label="Cinematic showcase — residence at dusk">
+  <div class="band-media" data-para="0.18"><div class="band-study bs-dusk"></div></div>
+  <div class="band-scrim"></div>
+  <span class="slot-note">Footage slot · twilight orbit</span>
+  <div class="planewrap" aria-hidden="true"><div class="plane"></div></div>
+  <div class="band-in">
+    <span class="kicker rev">Twilight, from 80 metres</span>
+    <h2 class="rev d1">A home is best understood from the air.</h2>
+    <p class="rev d2">Twilight orbits reveal what street photography never can — land, light, privacy and position.</p>
+    <a class="btn btn-line rev d3" href="#contact">Capture a listing</a>
+  </div>
+</section>
+
+<!-- ================= TRUST ================= -->
+<section class="pad" id="why" aria-labelledby="why-h">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker rev">Why SkyLuxe</span>
+      <h2 id="why-h" class="rev d1">Flown with care, delivered with pride</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust rev">
+        <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Licensed &amp; insured</b>
+        <p>CASA-accredited operation with airspace, weather and site checks before every flight.</p>
+      </div>
+      <div class="trust rev d1">
+        <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>24–48 hour delivery</b>
+        <p>Your edited gallery lands online while the listing momentum is still hot.</p>
+      </div>
+      <div class="trust rev d2">
+        <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 11.6c.8-4-2.3-7.6-6.3-7.6-3.2 0-5.9 2.3-6.4 5.4C5.3 9.7 3 12 3 15c0 3 2.5 5 5.5 5h10c2.5 0 4.5-2 4.5-4.5 0-2-1.3-3.5-2.2-3.9z"/></svg>We read the sky</b>
+        <p>Brisbane locals who know the light — we shoot when your place looks its best.</p>
+      </div>
+      <div class="trust rev d3">
+        <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6 4 4 6-7"/><path d="M14 8h6v6"/></svg>Made to perform</b>
+        <p>Delivered in the right formats for listings, Instagram, Facebook and print.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PACKAGES ================= -->
+<section class="pad" id="packages" aria-labelledby="packages-h">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker rev">Packages &amp; pricing</span>
+      <h2 id="packages-h" class="rev d1">Honest pricing, premium output</h2>
+      <p class="lead rev d2">Clear packages for listings, projects and stays. Need something custom? Just ask.</p>
+    </div>
+    <div class="pack-grid">
+      <div class="pack rev">
+        <div class="pn">Starter Aerial Pack</div>
+        <div class="pp">$250 <span>from</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>5 edited aerial photos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>1 short vertical reel</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>24–48 hour delivery</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Ideal for small listings</li>
+        </ul>
+        <a class="btn btn-line-dark" href="#contact">Request a Quote</a>
+      </div>
+      <div class="pack feat rev d1">
+        <div class="tag">Most Popular</div>
+        <div class="pn">Property Social Pack</div>
+        <div class="pp">$350 <span>from</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>8–10 edited drone photos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>15–30 second reel</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Text overlay included</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Social media ready</li>
+        </ul>
+        <a class="btn btn-bronze" href="#contact">Request a Quote</a>
+      </div>
+      <div class="pack rev d2">
+        <div class="pn">Premium Aerial Film</div>
+        <div class="pp">$550 <span>from</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>10 edited aerial photos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>45–60s cinematic film</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>1 vertical reel</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Music &amp; grade included</li>
+        </ul>
+        <a class="btn btn-line-dark" href="#contact">Request a Quote</a>
+      </div>
+    </div>
+    <p class="pack-note rev">All shoots are subject to airspace, weather, safety and location assessment.</p>
+  </div>
+</section>
+
+<!-- ================= STORY BAND 2 ================= -->
+<section class="band" aria-label="Cinematic showcase — coastal stay">
+  <div class="band-media" data-para="0.18"><div class="band-study bs-coast"></div></div>
+  <div class="band-scrim"></div>
+  <span class="slot-note">Footage slot · coastal reveal</span>
+  <div class="planewrap" aria-hidden="true"><div class="plane"></div></div>
+  <div class="band-in">
+    <span class="kicker rev">Blue hour, above the headland</span>
+    <h2 class="rev d1">Guests book what they can already feel.</h2>
+    <p class="rev d2">We film the experience of arriving — before anyone arrives.</p>
+    <a class="btn btn-line rev d3" href="#contact">Show my stay</a>
+  </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section class="pad" id="portfolio" aria-labelledby="portfolio-h">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker rev">Recent flights</span>
+      <h2 id="portfolio-h" class="rev d1">Moments we've brought home</h2>
+      <p class="lead rev d2">A sample of the angles, scale and atmosphere aerial media brings to property and brand work.</p>
+    </div>
+    <div class="port-grid">
+      <figure class="tile rev"><div class="art t1"></div><div class="ov"></div><figcaption class="meta"><small>Residential</small><h3>Luxury home at golden hour</h3></figcaption></figure>
+      <figure class="tile rev d1"><div class="art t2"></div><div class="ov"></div><figcaption class="meta"><small>Development</small><h3>A project taking shape</h3></figcaption></figure>
+      <figure class="tile rev d2"><div class="art t3"></div><div class="ov"></div><figcaption class="meta"><small>Short-stay</small><h3>The walk to the water</h3></figcaption></figure>
+      <figure class="tile rev"><div class="art t4"></div><div class="ov"></div><figcaption class="meta"><small>Acreage</small><h3>Land with room to breathe</h3></figcaption></figure>
+      <figure class="tile rev d1"><div class="art t5"></div><div class="ov"></div><figcaption class="meta"><small>Commercial</small><h3>A venue in its best light</h3></figcaption></figure>
+      <figure class="tile rev d2"><div class="art t6"></div><div class="ov"></div><figcaption class="meta"><small>Signature film</small><h3>Some stories need altitude</h3></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="pad" id="process" style="background:var(--paper-2)" aria-labelledby="process-h">
+  <div class="container">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="kicker rev" style="justify-content:center;display:inline-flex">How it works</span>
+      <h2 id="process-h" class="rev d1">Four easy steps, start to finish</h2>
+    </div>
+    <div class="steps" id="steps">
+      <i class="sline" id="sline"></i>
+      <div class="step rev"><div class="n">1</div><div><h3>Say hello</h3><p>Send the address and what you'd like — photos, a film, or both. We reply fast, usually within hours.</p></div></div>
+      <div class="step rev"><div class="n">2</div><div><h3>We check the sky</h3><p>Airspace, weather and site conditions — we confirm the best, safest time to shoot.</p></div></div>
+      <div class="step rev"><div class="n">3</div><div><h3>Shoot day</h3><p>Calm, tidy and efficient on site — clean aerial photos and smooth cinematic footage.</p></div></div>
+      <div class="step rev"><div class="n">4</div><div><h3>Your gallery arrives</h3><p>Edited files delivered online within 24–48 hours, ready for listings, socials and sharing.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="pad" id="about" aria-labelledby="about-h">
+  <div class="container about-grid">
+    <div>
+      <span class="kicker rev">About SkyLuxe</span>
+      <h2 id="about-h" class="rev d1">A Brisbane studio with a higher perspective</h2>
+      <p class="lead rev d2" style="margin-top:1.2rem">SkyLuxe Media helps real estate agents, builders, Airbnb hosts, landowners and local brands create premium visual content from above. We combine safe drone operation, clean honest editing and modern storytelling to help places shine online.</p>
+      <div class="stat-row rev d3">
+        <div class="stat"><b>24–48h</b><span>Gallery delivery</span></div>
+        <div class="stat"><b>CASA</b><span>Accredited &amp; insured</span></div>
+        <div class="stat"><b>4K</b><span>Cinematic capture</span></div>
+      </div>
+    </div>
+    <div class="about-visual rev d2" role="img" aria-label="Aerial photograph placeholder — replace with a signature SkyLuxe shot"></div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="pad" id="faq" style="background:var(--paper-2)" aria-labelledby="faq-h">
+  <div class="container">
+    <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="kicker rev" style="justify-content:center;display:inline-flex">Questions</span>
+      <h2 id="faq-h" class="rev d1">Frequently asked</h2>
+    </div>
+    <div class="faq">
+      <details class="rev"><summary>How much does drone photography cost in Brisbane?</summary><div class="a">Our packages start from $250 for edited aerial photos plus a vertical reel. The most popular Property Social Pack starts from $350, and cinematic aerial film packages start from $550. Custom quotes are always available.</div></details>
+      <details class="rev d1"><summary>How quickly are photos and videos delivered?</summary><div class="a">Edited galleries are delivered online within 24–48 hours of the shoot — fast enough to keep your listing or campaign momentum.</div></details>
+      <details class="rev d2"><summary>Are you licensed to fly drones commercially?</summary><div class="a">Yes. SkyLuxe Media operates as a CASA-accredited and insured operator, and we complete airspace, weather and site safety checks before every flight.</div></details>
+      <details class="rev d3"><summary>What areas do you service?</summary><div class="a">Greater Brisbane and surrounding South East Queensland. Travel further afield can be arranged — just mention the location in your enquiry.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="pad" id="contact" aria-labelledby="contact-h">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker rev">Book a shoot</span>
+      <h2 id="contact-h" class="rev d1">Tell us about the place</h2>
+      <p class="lead rev d2">Availability, a flight plan and a clear quote — usually the same day.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="cpanel rev" id="cform" novalidate>
+        <div class="fgrid">
+          <div class="field"><label for="cn">Name</label><input id="cn" type="text" placeholder="Your name" autocomplete="name" required></div>
+          <div class="field"><label for="ce">Email</label><input id="ce" type="email" placeholder="you@email.com" autocomplete="email" required></div>
+          <div class="field"><label for="cp">Phone</label><input id="cp" type="tel" placeholder="04xx xxx xxx" autocomplete="tel"></div>
+          <div class="field"><label for="cs">Service needed</label>
+            <select id="cs">
+              <option>Real estate drone photography</option>
+              <option>Property film or reel</option>
+              <option>Construction progress</option>
+              <option>Airbnb / short-stay</option>
+              <option>Business or brand promotion</option>
+              <option>Not sure yet — happy to chat</option>
+            </select>
+          </div>
+          <div class="field full"><label for="ca">Property / project address</label><input id="ca" type="text" placeholder="Street address, suburb"></div>
+          <div class="field full"><label for="cm">Message</label><textarea id="cm" placeholder="The place, your timing, anything else we should know."></textarea></div>
+          <div class="full">
+            <button class="btn btn-bronze" type="submit" style="width:100%">Send Enquiry</button>
+            <div class="ok-msg" id="okMsg">Thanks — your enquiry has landed. We'll be in touch shortly, usually within a few hours.</div>
+          </div>
+        </div>
+      </form>
+      <div class="cpanel darklist rev d2">
+        <div class="crow"><b>Studio</b><span>Brisbane, Queensland</span></div>
+        <div class="crow"><b>Email</b><a href="mailto:hello@skyluxemedia.com.au">hello@skyluxemedia.com.au</a></div>
+        <div class="crow"><b>Instagram</b><a href="#" rel="noopener">@skyluxemedia</a></div>
+        <div class="crow"><b>Engagements</b><span>From $250 · Films from $550</span></div>
+        <div class="crow"><b>Response time</b><span>Usually within hours, 7 days</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="foot-in">
+    <a class="logo" href="#top"><i></i>SkyLuxe</a>
+    <p>© 2026 SkyLuxe Media · Drone photography &amp; aerial film · Brisbane, Australia</p>
+    <div class="flinks">
+      <a href="#services">Services</a><a href="#packages">Packages</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+function safe(fn){ try{ return fn(); }catch(e){} }
+function clamp(v,a,b){ return v<a?a:(v>b?b:v); }
+var reduced=false;
+safe(function(){ reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches; });
+
+/* ---------- nav ---------- */
+safe(function(){
+  var nav=document.getElementById('nav');
+  function onS(){ nav.classList.toggle('scrolled',(window.scrollY||0)>40); }
+  window.addEventListener('scroll',onS,{passive:true}); onS();
+  var burger=document.getElementById('burger'), menu=document.getElementById('mmenu');
+  burger.addEventListener('click',function(){
+    var open=menu.classList.toggle('open'); burger.setAttribute('aria-expanded',open);
+  });
+  Array.prototype.forEach.call(menu.querySelectorAll('a'),function(a){
+    a.addEventListener('click',function(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
+  });
+});
+
+/* ---------- reveals ---------- */
+safe(function(){
+  if(reduced||!('IntersectionObserver' in window)){
+    Array.prototype.forEach.call(document.querySelectorAll('.rev'),function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  Array.prototype.forEach.call(document.querySelectorAll('.rev'),function(el){ io.observe(el); });
+  setTimeout(function(){
+    Array.prototype.forEach.call(document.querySelectorAll('.rev:not(.in)'),function(el){
+      if(el.getBoundingClientRect().top<window.innerHeight) el.classList.add('in');
+    });
+  },2500);
+});
+
+/* ---------- parallax: bands + hero canvas drift ---------- */
+safe(function(){
+  if(reduced) return;
+  var bands=document.querySelectorAll('.band-media');
+  function para(){
+    var vh=window.innerHeight;
+    Array.prototype.forEach.call(bands,function(m){
+      var r=m.parentElement.getBoundingClientRect();
+      if(r.bottom<0||r.top>vh) return;
+      var p=(r.top+r.height/2-vh/2)/vh;
+      var k=parseFloat(m.dataset.para||'0.16');
+      m.style.transform='translateY('+(p*-vh*k).toFixed(1)+'px)';
+    });
+  }
+  window.addEventListener('scroll',para,{passive:true});
+  window.addEventListener('resize',para,{passive:true});
+  para();
+});
+
+/* ---------- process line ---------- */
+safe(function(){
+  var steps=document.getElementById('steps'), line=document.getElementById('sline');
+  if(!steps||!line) return;
+  function up(){
+    var r=steps.getBoundingClientRect(), vh=window.innerHeight;
+    var p=clamp((vh*0.72-r.top)/r.height,0,1);
+    line.style.height=(p*100)+'%';
+    Array.prototype.forEach.call(steps.querySelectorAll('.step'),function(st){
+      var n=st.querySelector('.n');
+      var top=st.offsetTop+n.offsetTop+30;
+      st.classList.toggle('on',p*r.height>=top-10);
+    });
+  }
+  window.addEventListener('scroll',up,{passive:true});
+  window.addEventListener('resize',up,{passive:true});
+  up();
+});
+
+/* ---------- hero canvas: tonal aerial world + drone & camera ---------- */
+safe(function(){
+  if(reduced) return;
+  var canvas=document.getElementById('heroCanvas');
+  if(!canvas||!canvas.getContext) return;
+  var ctx=canvas.getContext('2d');
+  var W,H,DPR,mouseX=0,ridges=[],clouds=[];
+  function rs(){
+    DPR=Math.min(window.devicePixelRatio||1,1.6);
+    var r=canvas.parentElement.getBoundingClientRect();
+    W=r.width;H=r.height;
+    canvas.width=W*DPR;canvas.height=H*DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    clouds=[];var cn=Math.max(4,Math.round(W/300));
+    for(var i=0;i<cn;i++) clouds.push({x:Math.random()*W*1.3-W*.15,y:H*(.1+Math.random()*.3),s:.7+Math.random()*1.3,sp:.06+Math.random()*.1,seed:Math.random()*7});
+  }
+  rs();
+  window.addEventListener('resize',rs,{passive:true});
+  window.addEventListener('pointermove',function(e){ mouseX=(e.clientX/W-.5)*2; },{passive:true});
+  window.addEventListener('deviceorientation',function(e){ if(e.gamma!=null) mouseX=clamp(e.gamma/30,-1,1); },{passive:true});
+
+  var RID=[
+    {base:.62,amp:.05,f:.0022,ph:1.4,c0:[110,116,122],c1:[70,74,80],par:8},
+    {base:.7,amp:.06,f:.0028,ph:4.2,c0:[82,86,92],c1:[52,55,60],par:16},
+    {base:.79,amp:.07,f:.0035,ph:2.4,c0:[56,59,64],c1:[34,36,40],par:26},
+    {base:.9,amp:.07,f:.0042,ph:5.6,c0:[36,38,42],c1:[20,21,24],par:38}
+  ];
+  function ry(x,L){ return H*L.base+H*L.amp*(Math.sin(x*L.f+L.ph)+.5*Math.sin(x*L.f*2.1+L.ph*2.2)); }
+
+  var dr={x:-100,y:0,a:0}, cm={x:-100,y:0,a:0}, trail=[];
+  var t0=performance.now();
+  function loop(now){
+    var t=(now-t0)/1000;
+    ctx.clearRect(0,0,W,H);
+    /* sky: charcoal to bone glow */
+    var g=ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0,'#1B1D22'); g.addColorStop(.45,'#3A3E46'); g.addColorStop(.62,'#8A867C'); g.addColorStop(.72,'#4E4B45'); g.addColorStop(1,'#15161A');
+    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+    /* low sun glow */
+    var sx=W*.68, sy=H*.6;
+    var sg=ctx.createRadialGradient(sx,sy,2,sx,sy,W*.32);
+    sg.addColorStop(0,'rgba(238,222,190,.55)'); sg.addColorStop(.3,'rgba(216,185,138,.22)'); sg.addColorStop(1,'rgba(216,185,138,0)');
+    ctx.fillStyle=sg; ctx.fillRect(0,0,W,H);
+    /* clouds */
+    for(var i=0;i<clouds.length;i++){
+      var c=clouds[i]; c.x+=c.sp;
+      if(c.x>W+200){c.x=-220;c.y=H*(.08+Math.random()*.32);}
+      var cx=c.x-mouseX*14*c.s, cy=c.y+Math.sin(t*.16+c.seed)*4;
+      ctx.fillStyle='rgba(216,214,208,.13)';
+      ctx.beginPath();
+      ctx.ellipse(cx,cy,70*c.s,16*c.s,0,0,6.283);
+      ctx.ellipse(cx+44*c.s,cy-8*c.s,46*c.s,13*c.s,0,0,6.283);
+      ctx.ellipse(cx-46*c.s,cy-4*c.s,40*c.s,11*c.s,0,0,6.283);
+      ctx.fill();
+    }
+    /* ridges */
+    for(var L2=0;L2<RID.length;L2++){
+      var L=RID[L2], off=t*L.par*.7+mouseX*L.par*3;
+      var rg=ctx.createLinearGradient(0,H*L.base-H*L.amp,0,H);
+      rg.addColorStop(0,'rgb('+L.c0.join(',')+')'); rg.addColorStop(1,'rgb('+L.c1.join(',')+')');
+      ctx.fillStyle=rg;
+      ctx.beginPath(); ctx.moveTo(0,H);
+      for(var x=0;x<=W;x+=16) ctx.lineTo(x,ry(x+off,L));
+      ctx.lineTo(W,H); ctx.closePath(); ctx.fill();
+    }
+    /* mist above ridges */
+    var hz=ctx.createLinearGradient(0,H*.55,0,H*.95);
+    hz.addColorStop(0,'rgba(160,156,148,0)'); hz.addColorStop(.5,'rgba(160,156,148,.12)'); hz.addColorStop(1,'rgba(160,156,148,0)');
+    ctx.fillStyle=hz; ctx.fillRect(0,H*.55,W,H*.4);
+
+    /* drone + camera alternating slowly over time */
+    var phase=(Math.sin(t*.07)+1)/2; /* 0..1 slow */
+    var aDr=clamp(phase*1.6,0,1), aCm=clamp((1-phase)*1.6,0,1);
+
+    /* drone */
+    (function(){
+      if(aDr<.03) return;
+      var nx=W*(.5+.27*Math.sin(t*.14)+.08*Math.sin(t*.44+1.2))-mouseX*36;
+      var ny=H*(.26+.05*Math.sin(t*.24+.6))+Math.sin(t*2.2)*2.5;
+      if(dr.x<-90){dr.x=nx;dr.y=ny;}
+      var dx=nx-dr.x; dr.x+=dx*.03; dr.y+=(ny-dr.y)*.03;
+      dr.a+=(clamp(dx*.005,-.35,.35)-dr.a)*.05;
+      trail.push({x:dr.x,y:dr.y}); if(trail.length>24) trail.shift();
+      for(var i2=1;i2<trail.length;i2++){
+        ctx.strokeStyle='rgba(216,185,138,'+(i2/trail.length*.2*aDr)+')';
+        ctx.lineWidth=.8+i2/trail.length*1.6; ctx.lineCap='round';
+        ctx.beginPath(); ctx.moveTo(trail[i2-1].x,trail[i2-1].y); ctx.lineTo(trail[i2].x,trail[i2].y); ctx.stroke();
+      }
+      ctx.save(); ctx.globalAlpha=aDr;
+      ctx.translate(dr.x,dr.y); ctx.rotate(dr.a);
+      var sc=(W<760?.75:1.05); ctx.scale(sc,sc);
+      var dark='#101113',mid='#26282C',lite='#54565C';
+      function disc(rx,ryy){
+        ctx.save(); ctx.translate(rx,ryy);
+        ctx.beginPath(); ctx.ellipse(0,0,12,3.4,0,0,6.283); ctx.fillStyle='rgba(16,17,19,.18)'; ctx.fill();
+        var a0=(t*26)%6.283;
+        ctx.beginPath(); ctx.ellipse(0,0,12,3.4,0,a0,a0+1.1);
+        ctx.strokeStyle='rgba(232,222,202,.65)'; ctx.lineWidth=1.2; ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(0,0,1.6,1.1,0,0,6.283); ctx.fillStyle=mid; ctx.fill();
+        ctx.restore();
+      }
+      disc(-20,-6); disc(20,-6);
+      ctx.lineCap='round';
+      [[-20,-6,3.2],[20,-6,3.2],[-15,6,3.6],[15,6,3.6]].forEach(function(a3){
+        ctx.beginPath(); ctx.moveTo(a3[0]*.25,a3[1]*.25); ctx.lineTo(a3[0],a3[1]);
+        ctx.strokeStyle=mid; ctx.lineWidth=a3[2]; ctx.stroke();
+      });
+      var bg2=ctx.createLinearGradient(0,-6,0,7);
+      bg2.addColorStop(0,lite); bg2.addColorStop(.5,mid); bg2.addColorStop(1,dark);
+      ctx.beginPath();
+      ctx.moveTo(-10,0); ctx.bezierCurveTo(-10,-5,-5,-6.5,0,-6.5);
+      ctx.bezierCurveTo(5,-6.5,10,-5,10,0); ctx.bezierCurveTo(10,3.8,5.5,6,0,6);
+      ctx.bezierCurveTo(-5.5,6,-10,3.8,-10,0); ctx.closePath();
+      ctx.fillStyle=bg2; ctx.fill();
+      ctx.beginPath(); ctx.ellipse(-2,-3.2,4.6,1.7,-.2,0,6.283); ctx.fillStyle='rgba(255,255,255,.2)'; ctx.fill();
+      ctx.beginPath(); ctx.arc(0,7,2.6,0,6.283); ctx.fillStyle=dark; ctx.fill();
+      ctx.beginPath(); ctx.arc(-.2,6.6,.45,0,6.283); ctx.fillStyle='rgba(255,255,255,.9)'; ctx.fill();
+      disc(-15,6); disc(15,6);
+      if(Math.sin(t*4.2)>.9){
+        ctx.beginPath(); ctx.arc(8.4,-1,1.2,0,6.283);
+        ctx.fillStyle='rgba(220,100,84,.9)'; ctx.fill();
+      }
+      ctx.restore(); ctx.globalAlpha=1;
+    })();
+
+    /* camera gimbal */
+    (function(){
+      if(aCm<.03) return;
+      var nx=W*(.42+.2*Math.sin(t*.1+2.1))+mouseX*26;
+      var ny=H*(.3+.04*Math.sin(t*.18+1.1))+Math.sin(t*1.8)*2.5;
+      if(cm.x<-90){cm.x=nx;cm.y=ny;}
+      cm.x+=(nx-cm.x)*.025; cm.y+=(ny-cm.y)*.025;
+      cm.a+=((Math.sin(t*.15)*.1+mouseX*.05)-cm.a)*.04;
+      ctx.save(); ctx.globalAlpha=aCm;
+      ctx.translate(cm.x,cm.y); ctx.rotate(cm.a);
+      var sc=(W<760?.7:1); ctx.scale(sc,sc);
+      var dark='#101113',mid='#24262A',lite='#52545A';
+      ctx.strokeStyle='rgba(120,122,128,.5)'; ctx.lineWidth=2;
+      ctx.beginPath(); ctx.arc(0,0,28,-2.4,1.6); ctx.stroke();
+      ctx.beginPath(); ctx.arc(0,-28,4.6,0,6.283);
+      var pg=ctx.createRadialGradient(-1.2,-29.2,1,0,-28,4.6);
+      pg.addColorStop(0,lite); pg.addColorStop(1,dark);
+      ctx.fillStyle=pg; ctx.fill();
+      var bg3=ctx.createLinearGradient(0,-11,0,11);
+      bg3.addColorStop(0,lite); bg3.addColorStop(.5,mid); bg3.addColorStop(1,dark);
+      ctx.beginPath();
+      ctx.moveTo(-15,-9); ctx.lineTo(7,-11); ctx.quadraticCurveTo(12,-11,12,-6);
+      ctx.lineTo(12,7); ctx.quadraticCurveTo(12,11,7,11);
+      ctx.lineTo(-15,9); ctx.quadraticCurveTo(-19,8,-19,4);
+      ctx.lineTo(-19,-4); ctx.quadraticCurveTo(-19,-8,-15,-9);
+      ctx.closePath(); ctx.fillStyle=bg3; ctx.fill();
+      ctx.beginPath(); ctx.ellipse(-4,-8.6,10,1.5,-.06,0,6.283); ctx.fillStyle='rgba(244,242,238,.14)'; ctx.fill();
+      var lg=ctx.createLinearGradient(12,-7,12,7);
+      lg.addColorStop(0,lite); lg.addColorStop(.5,mid); lg.addColorStop(1,dark);
+      ctx.fillStyle=lg; ctx.fillRect(12,-7,15,14);
+      ctx.strokeStyle='rgba(10,10,12,.6)'; ctx.lineWidth=1.3;
+      ctx.beginPath(); ctx.moveTo(17,-7); ctx.lineTo(17,7); ctx.moveTo(22,-7); ctx.lineTo(22,7); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(27,0,3.1,7.2,0,0,6.283);
+      var fg=ctx.createRadialGradient(26,-1.8,1,27,0,7.2);
+      fg.addColorStop(0,'#39414F'); fg.addColorStop(.6,'#0F1318'); fg.addColorStop(1,'#05060A');
+      ctx.fillStyle=fg; ctx.fill();
+      ctx.strokeStyle='rgba(232,222,202,.4)'; ctx.lineWidth=1;
+      ctx.beginPath(); ctx.ellipse(27,0,3.1,7.2,0,0,6.283); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(26.4,-2.8,.8,1.8,0,0,6.283); ctx.fillStyle='rgba(255,255,255,.7)'; ctx.fill();
+      ctx.beginPath(); ctx.ellipse(27.5,2.2,.45,1,0,0,6.283); ctx.fillStyle='rgba(216,185,138,.55)'; ctx.fill();
+      if(Math.sin(t*3.4)>.4){
+        ctx.beginPath(); ctx.arc(-14,-5,1.1,0,6.283);
+        ctx.fillStyle='rgba(220,100,84,.9)'; ctx.fill();
+      }
+      ctx.restore(); ctx.globalAlpha=1;
+    })();
+
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+});
+
+/* ---------- form ---------- */
+safe(function(){
+  var form=document.getElementById('cform');
+  if(!form) return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('cn'), em=document.getElementById('ce');
+    if(!n.value.trim()||!em.value.trim()){ n.reportValidity(); em.reportValidity(); return; }
+    document.getElementById('okMsg').classList.add('show');
+    form.reset();
+  });
+});
+})();
+</script>
+</body>
+</html>
