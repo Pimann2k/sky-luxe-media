@@ -352,12 +352,24 @@ h3{font-size:1.3rem}
   backdrop-filter: blur(10px);
   pointer-events: none;
   opacity: .85;
-  transition: opacity .25s ease, transform .25s ease;
+  transition: opacity .25s ease, transform .25s ease, background .25s ease;
 }
 
 .video-tile:hover .play-hint {
-  opacity: 0;
-  transform: translateY(-4px);
+  opacity: 1;
+}
+
+.video-tile.sound-on .play-hint {
+  background: rgba(154, 120, 67, .92);
+  color: #fff;
+  font-size: 0;
+}
+
+.video-tile.sound-on .play-hint::after {
+  content: "Sound on";
+  font-size: .62rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
 }
 
 
@@ -767,8 +779,11 @@ footer p{font-size:.86rem;font-weight:500}
           playsinline
           preload="metadata"
         ></video>
+
         <div class="ov"></div>
-        <span class="play-hint">Hover to play</span>
+
+        <span class="play-hint">Hover preview · Click for sound</span>
+
         <figcaption class="meta">
           <small>Real footage with AI-assisted edit</small>
           <h3>Luxury Property Showcase Demo</h3>
@@ -1147,8 +1162,7 @@ safe(function(){
 });
 
 
-
-/* ---------- portfolio video hover play ---------- */
+/* ---------- portfolio video hover preview + click for sound ---------- */
 safe(function(){
   var videoTiles = document.querySelectorAll('.video-tile');
 
@@ -1160,21 +1174,37 @@ safe(function(){
     video.muted = true;
     video.loop = true;
     video.playsInline = true;
+    video.volume = 0.85;
+
+    var soundOn = false;
 
     tile.addEventListener('mouseenter', function(){
+      if (!soundOn) {
+        video.muted = true;
+      }
       video.play().catch(function(){});
     });
 
     tile.addEventListener('mouseleave', function(){
-      video.pause();
-      video.currentTime = 0;
+      if (!soundOn) {
+        video.pause();
+        video.currentTime = 0;
+      }
     });
 
     tile.addEventListener('click', function(){
-      if(video.paused){
+      soundOn = !soundOn;
+
+      if (soundOn) {
+        video.muted = false;
+        video.volume = 0.85;
+        tile.classList.add('sound-on');
         video.play().catch(function(){});
-      }else{
+      } else {
+        video.muted = true;
+        tile.classList.remove('sound-on');
         video.pause();
+        video.currentTime = 0;
       }
     });
   });
