@@ -299,6 +299,68 @@ h3{font-size:1.3rem}
 .tile .meta small{display:block;font-size:.62rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:#E8C98A;margin-bottom:.25rem}
 .tile .meta h3{font-size:1.08rem;color:#fff}
 
+/* ---------- portfolio video hover card ---------- */
+.video-tile {
+  position: relative;
+  overflow: hidden;
+  background: #191B1F;
+}
+
+.video-tile .portfolio-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  background: #191B1F;
+  z-index: 0;
+  filter: saturate(.82) contrast(1.04);
+  transition: transform .55s ease, filter .55s ease;
+}
+
+.video-tile:hover .portfolio-video {
+  transform: scale(1.06);
+  filter: saturate(.95) contrast(1.08);
+}
+
+.video-tile .ov {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.video-tile .meta {
+  z-index: 3;
+  pointer-events: none;
+}
+
+.play-hint {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 4;
+  padding: .42rem .72rem;
+  border-radius: 999px;
+  background: rgba(8, 9, 11, .62);
+  border: 1px solid rgba(255, 255, 255, .22);
+  color: #fff;
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  opacity: .85;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.video-tile:hover .play-hint {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+
 /* ---------- process ---------- */
 .steps{position:relative;max-width:720px;margin:0 auto}
 .steps::before{content:"";position:absolute;left:27px;top:16px;bottom:16px;width:2px;background:rgba(154,120,67,.25)}
@@ -696,8 +758,22 @@ footer p{font-size:.86rem;font-weight:500}
       <p class="lead rev d2">Our first portfolio includes real sample content and AI-assisted concept visuals created to demonstrate SkyLuxe Media's visual direction. AI-assisted visuals are used for branding, concepts and cinematic storytelling support, not to misrepresent real property features.</p>
     </div>
     <div class="port-grid">
-      
-<figure class="tile rev"><div class="art t1"></div><div class="ov"></div><figcaption class="meta"><small>Real sample</small><h3>Residential at golden hour</h3></figcaption></figure>
+      <figure class="tile rev video-tile" aria-label="Luxury Property Showcase Demo video preview">
+        <video
+          class="art portfolio-video"
+          src="/videos/luxury-property-showcase-demo.mp4"
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        ></video>
+        <div class="ov"></div>
+        <span class="play-hint">Hover to play</span>
+        <figcaption class="meta">
+          <small>Real footage with AI-assisted edit</small>
+          <h3>Luxury Property Showcase Demo</h3>
+        </figcaption>
+      </figure>
       <figure class="tile rev d1"><div class="art t2"></div><div class="ov"></div><figcaption class="meta"><small>Real sample</small><h3>Builder progress — project taking shape</h3></figcaption></figure>
       <figure class="tile rev d2"><div class="art t3"></div><div class="ov"></div><figcaption class="meta"><small>AI-assisted concept</small><h3>Coastal stay — the walk to the water</h3></figcaption></figure>
       <figure class="tile rev"><div class="art t4"></div><div class="ov"></div><figcaption class="meta"><small>Real sample</small><h3>Acreage — land with room to breathe</h3></figcaption></figure>
@@ -733,7 +809,7 @@ footer p{font-size:.86rem;font-weight:500}
       <p class="lead rev d2" style="margin-top:1.2rem">SkyLuxe Media is a Brisbane-based property and aerial media business helping real estate agents, builders, Airbnb hosts, landowners and local brands create premium visual content. We combine drone photography, ground-level photos, cinematic reels and AI-assisted concept visuals to help listings, projects and businesses stand out online.</p>
       <div class="stat-row rev d3">
         <div class="stat"><b>24–48h</b><span>Gallery delivery</span></div>
-        <div class="stat"><b>CASA</b><span>Accredited &amp; insured</span></div>
+        <div class="stat"><b>CASA</b><span>Accredited operator</span></div>
         <div class="stat"><b>4K</b><span>Cinematic capture</span></div>
       </div>
     </div>
@@ -763,7 +839,7 @@ footer p{font-size:.86rem;font-weight:500}
 <section class="pad" id="contact" aria-labelledby="contact-h">
   <div class="container">
     <div class="section-head">
-      <span class="kicker rev">Book a shoot</span>
+      <span class="kicker rev">Request a quote</span>
       <h2 id="contact-h" class="rev d1">Request a quote</h2>
       <p class="lead rev d2">Tell us about your property or project and we'll come back with a clear quote — usually the same day.</p>
     </div>
@@ -1068,6 +1144,40 @@ safe(function(){
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
+});
+
+
+
+/* ---------- portfolio video hover play ---------- */
+safe(function(){
+  var videoTiles = document.querySelectorAll('.video-tile');
+
+  Array.prototype.forEach.call(videoTiles, function(tile){
+    var video = tile.querySelector('video');
+    if(!video) return;
+
+    video.removeAttribute('controls');
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    tile.addEventListener('mouseenter', function(){
+      video.play().catch(function(){});
+    });
+
+    tile.addEventListener('mouseleave', function(){
+      video.pause();
+      video.currentTime = 0;
+    });
+
+    tile.addEventListener('click', function(){
+      if(video.paused){
+        video.play().catch(function(){});
+      }else{
+        video.pause();
+      }
+    });
+  });
 });
 
 /* ---------- form ---------- */
