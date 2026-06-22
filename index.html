@@ -303,7 +303,7 @@ h3{font-size:1.3rem}
 .video-tile {
   position: relative;
   overflow: hidden;
-  background: #000;
+  background: #191B1F;
 }
 
 .video-tile .portfolio-video {
@@ -311,18 +311,32 @@ h3{font-size:1.3rem}
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center center;
   display: block;
-  background: #000;
+  background: #191B1F;
   z-index: 0;
-  filter: saturate(.9) contrast(1.04);
+  filter: saturate(.82) contrast(1.04);
   transition: transform .55s ease, filter .55s ease;
 }
 
+/* Only the builder timelapse stays uncropped because it is vertical. */
+.builder-video-tile {
+  background: #000;
+}
+
+.builder-video-tile .portfolio-video {
+  object-fit: contain;
+  background: #000;
+}
+
 .video-tile:hover .portfolio-video {
+  transform: scale(1.06);
+  filter: saturate(.95) contrast(1.08);
+}
+
+.builder-video-tile:hover .portfolio-video {
   transform: scale(1.01);
-  filter: saturate(1) contrast(1.08);
 }
 
 .video-tile .ov {
@@ -795,7 +809,7 @@ footer p{font-size:.86rem;font-weight:500}
         </figcaption>
       </figure>
 
-      <figure class="tile rev d1 video-tile" aria-label="Builder progress timelapse video preview">
+      <figure class="tile rev d1 video-tile builder-video-tile" aria-label="Builder progress timelapse video preview">
         <video
           class="art portfolio-video"
           src="assets/builder-progress-timelapse.mp4"
