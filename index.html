@@ -303,7 +303,7 @@ h3{font-size:1.3rem}
 .video-tile {
   position: relative;
   overflow: hidden;
-  background: #191B1F;
+  background: #000;
 }
 
 .video-tile .portfolio-video {
@@ -311,18 +311,18 @@ h3{font-size:1.3rem}
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   display: block;
-  background: #191B1F;
+  background: #000;
   z-index: 0;
-  filter: saturate(.82) contrast(1.04);
+  filter: saturate(.9) contrast(1.04);
   transition: transform .55s ease, filter .55s ease;
 }
 
 .video-tile:hover .portfolio-video {
-  transform: scale(1.06);
-  filter: saturate(.95) contrast(1.08);
+  transform: scale(1.01);
+  filter: saturate(1) contrast(1.08);
 }
 
 .video-tile .ov {
