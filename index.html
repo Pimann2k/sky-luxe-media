@@ -778,10 +778,11 @@ footer p{font-size:.86rem;font-weight:500}
         <video
           class="art portfolio-video"
           src="assets/luxury-property-showcase-demo.mp4"
+          autoplay
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="auto"
         ></video>
 
         <div class="ov"></div>
@@ -798,10 +799,11 @@ footer p{font-size:.86rem;font-weight:500}
         <video
           class="art portfolio-video"
           src="assets/builder-progress-timelapse.mp4"
+          autoplay
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="auto"
         ></video>
 
         <div class="ov"></div>
@@ -1218,7 +1220,8 @@ safe(function(){
 });
 
 
-/* ---------- portfolio video hover preview + click for sound ---------- */
+
+/* ---------- portfolio video autoplay preview + click for sound ---------- */
 safe(function(){
   var videoTiles = document.querySelectorAll('.video-tile');
 
@@ -1227,24 +1230,31 @@ safe(function(){
     if(!video) return;
 
     video.removeAttribute('controls');
+    video.setAttribute('autoplay', '');
     video.muted = true;
     video.loop = true;
     video.playsInline = true;
+    video.preload = 'auto';
     video.volume = 0.85;
 
     var soundOn = false;
 
-    tile.addEventListener('mouseenter', function(){
+    function playMutedPreview(){
       if (!soundOn) {
         video.muted = true;
       }
       video.play().catch(function(){});
+    }
+
+    playMutedPreview();
+
+    tile.addEventListener('mouseenter', function(){
+      playMutedPreview();
     });
 
     tile.addEventListener('mouseleave', function(){
       if (!soundOn) {
-        video.pause();
-        video.currentTime = 0;
+        video.play().catch(function(){});
       }
     });
 
@@ -1259,8 +1269,7 @@ safe(function(){
       } else {
         video.muted = true;
         tile.classList.remove('sound-on');
-        video.pause();
-        video.currentTime = 0;
+        video.play().catch(function(){});
       }
     });
   });
