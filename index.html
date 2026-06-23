@@ -935,13 +935,32 @@ footer p{font-size:.86rem;font-weight:500}
       <p class="lead rev d2">Tell us about your property or project and we'll come back with a clear quote — usually the same day.</p>
     </div>
     <div class="contact-grid">
-      <form class="cpanel rev" id="cform" action="mailto:hello@skyluxemedia.com.au" method="POST" enctype="text/plain">
+      <form class="cpanel rev" id="cform">
+        <input type="hidden" name="access_key" value="55302ff4-e47f-474f-ba77-1d18e28bd3ff">
+        <input type="hidden" name="subject" value="New quote request from SkyLuxe Media website">
+        <input type="hidden" name="from_name" value="SkyLuxe Media Website">
+        <input type="hidden" name="redirect" value="">
+        <input type="checkbox" name="botcheck" style="display:none">
+
         <div class="fgrid">
-          <div class="field"><label for="cn">Name</label><input id="cn" type="text" placeholder="Your name" autocomplete="name" required></div>
-          <div class="field"><label for="ce">Email</label><input id="ce" type="email" placeholder="you@email.com" autocomplete="email" required></div>
-          <div class="field"><label for="cp">Phone</label><input id="cp" type="tel" placeholder="04xx xxx xxx" autocomplete="tel"></div>
-          <div class="field"><label for="cs">Service needed</label>
-            <select id="cs">
+          <div class="field">
+            <label for="cn">Name</label>
+            <input id="cn" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="ce">Email</label>
+            <input id="ce" name="email" type="email" placeholder="you@email.com" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="cp">Phone</label>
+            <input id="cp" name="phone" type="tel" placeholder="04xx xxx xxx" autocomplete="tel">
+          </div>
+
+          <div class="field">
+            <label for="cs">Service needed</label>
+            <select id="cs" name="service">
               <option>Property Starter Pack — aerial + ground photos + reel ($250+)</option>
               <option>Sky Story Reel — cinematic short reel ($350+)</option>
               <option>Builder Progress Pack — aerial + ground + reel ($450+)</option>
@@ -951,18 +970,29 @@ footer p{font-size:.86rem;font-weight:500}
               <option>Custom / not sure yet — happy to chat</option>
             </select>
           </div>
-          <div class="field full"><label for="ca">Property / project address</label><input id="ca" type="text" placeholder="Street address, suburb"></div>
-          <div class="field full"><label for="cm">Message</label><textarea id="cm" placeholder="The place, your timing, anything else we should know."></textarea></div>
+
+          <div class="field full">
+            <label for="ca">Property / project address</label>
+            <input id="ca" name="address" type="text" placeholder="Street address, suburb">
+          </div>
+
+          <div class="field full">
+            <label for="cm">Message</label>
+            <textarea id="cm" name="message" placeholder="The place, your timing, anything else we should know." required></textarea>
+          </div>
+
           <div class="full">
-            <button class="btn btn-bronze" type="submit" style="width:100%">Send Enquiry</button>
-            <p style="margin-top:.9rem;font-size:.82rem;color:var(--ink-2)">Submitting opens your email app pre-filled with your enquiry. Hit send and we'll reply within a few hours.</p>
+            <button class="btn btn-bronze" id="submitBtn" type="submit" style="width:100%">Send Enquiry</button>
+            <p id="formStatus" style="margin-top:.9rem;font-size:.9rem;color:var(--ink-2)">
+              Submit your details and we’ll reply to your quote request as soon as possible.
+            </p>
           </div>
         </div>
       </form>
       <div class="cpanel darklist rev d2">
         <div class="crow"><b>Studio</b><span>Brisbane, Queensland</span></div>
         <div class="crow"><b>Email</b><a href="mailto:hello@skyluxemedia.com.au">hello@skyluxemedia.com.au</a></div>
-        <div class="crow"><b>Instagram</b><a href="#" rel="noopener">@skyluxemedia</a></div>
+        <div class="crow"><b>Instagram</b><a href="https://www.instagram.com/skyluxemediavisuals/" target="_blank" rel="noopener">@skyluxemediavisuals</a></div>
         <div class="crow"><b>Packages</b><span>Starter $250 · Reel $350 · Builder $450</span></div>
         <div class="crow"><b>Response time</b><span>Usually within hours, 7 days</span></div>
       </div>
@@ -978,7 +1008,7 @@ footer p{font-size:.86rem;font-weight:500}
     <a class="logo" href="#top" aria-label="SkyLuxe Media home"><img class="logo-img" src="assets/skyluxe-logo-nav.png" alt="SkyLuxe Media"><span class="logo-text">SkyLuxe Media</span></a>
     <p>© 2026 SkyLuxe Media · Property &amp; aerial media · Brisbane, Australia</p>
     <div class="flinks">
-      <a href="#services">Services</a><a href="#packages">Packages</a><a href="#contact">Contact</a>
+      <a href="#services">Services</a><a href="#packages">Packages</a><a href="#contact">Contact</a><a href="https://www.instagram.com/skyluxemediavisuals/" target="_blank" rel="noopener">Instagram</a>
     </div>
   </div>
 </footer>
@@ -1292,9 +1322,47 @@ safe(function(){
   });
 });
 
+
 /* ---------- form ---------- */
-/* form uses mailto — native browser handles submission */
-})();
-</script>
-</body>
-</html>
+safe(function(){
+  var form = document.getElementById('cform');
+  var status = document.getElementById('formStatus');
+  var submitBtn = document.getElementById('submitBtn');
+
+  if (!form || !status) return;
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+
+    status.textContent = 'Sending your enquiry...';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+    }
+
+    var formData = new FormData(form);
+
+    try {
+      var response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+
+      var result = await response.json();
+
+      if (result.success) {
+        status.textContent = 'Thank you — your enquiry has been sent. We’ll reply as soon as possible.';
+        form.reset();
+      } else {
+        status.textContent = 'Something went wrong. Please email hello@skyluxemedia.com.au directly.';
+      }
+    } catch (error) {
+      status.textContent = 'Network error. Please email hello@skyluxemedia.com.au directly.';
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Enquiry';
+    }
+  });
+});
