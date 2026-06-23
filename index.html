@@ -374,50 +374,7 @@ h3{font-size:1.3rem}
   pointer-events: none;
 }
 
-.play-hint {
-  position: absolute;
-  top: .9rem;
-  right: .9rem;
-  z-index: 4;
-  padding: .38rem .64rem;
-  border-radius: 999px;
-  background: rgba(8, 9, 11, .62);
-  border: 1px solid rgba(255, 255, 255, .22);
-  color: #fff;
-  font-size: .55rem;
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(-4px);
-  transition: opacity .25s ease, transform .25s ease, background .25s ease;
-  white-space: nowrap;
-}
-
-.video-tile:hover .play-hint {
-  opacity: .9;
-  transform: translateY(0);
-}
-
-.video-tile.sound-on .play-hint {
-  opacity: 1;
-  transform: translateY(0);
-  background: rgba(154, 120, 67, .92);
-  color: #fff;
-  font-size: 0;
-}
-
-.video-tile.sound-on .play-hint::after {
-  content: "Sound on";
-  font-size: .55rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-
-@media(max-width: 760px) {
+.video-tile:hover .video-tile.sound-on @media(max-width: 760px) {
   .featured-reels {
     grid-template-columns: 1fr;
   }
@@ -431,18 +388,7 @@ h3{font-size:1.3rem}
     margin-inline: auto;
   }
 
-  .play-hint {
-    opacity: .85;
-    transform: none;
-    font-size: 0;
   }
-
-  .play-hint::before {
-    content: "Tap to play";
-    font-size: .55rem;
-    letter-spacing: .12em;
-  }
-}
 
 
 /* ---------- process ---------- */
@@ -858,8 +804,6 @@ footer p{font-size:.86rem;font-weight:500}
 
         <div class="ov"></div>
 
-        <span class="play-hint">Hover to play</span>
-
         <figcaption class="meta">
           <small>Real footage with AI-assisted edit</small>
           <h3>Luxury Property Showcase Demo</h3>
@@ -877,8 +821,6 @@ footer p{font-size:.86rem;font-weight:500}
         ></video>
 
         <div class="ov"></div>
-
-        <span class="play-hint">Hover to play</span>
 
         <figcaption class="meta">
           <small>AI-assisted concept</small>
@@ -1292,6 +1234,7 @@ safe(function(){
   }
   requestAnimationFrame(loop);
 });
+
 
 
 
