@@ -372,6 +372,26 @@ h3{font-size:1.3rem}
   text-transform: uppercase;
 }
 
+/* builder tile: keep same card layout, show vertical video centered */
+.video-tile.builder-vertical{background:linear-gradient(180deg,#11161c 0%,#1a222b 100%)}
+.video-tile.builder-vertical .portfolio-video{
+  inset:auto;
+  top:0;
+  bottom:0;
+  left:50%;
+  right:auto;
+  width:auto;
+  height:100%;
+  object-fit:contain;
+  object-position:center center;
+  transform:translateX(-50%);
+  filter:saturate(.92) contrast(1.05);
+}
+.video-tile.builder-vertical:hover .portfolio-video{
+  transform:translateX(-50%) scale(1.03);
+  filter:saturate(1) contrast(1.08);
+}
+
 
 /* ---------- process ---------- */
 .steps{position:relative;max-width:720px;margin:0 auto}
@@ -794,7 +814,7 @@ footer p{font-size:.86rem;font-weight:500}
         </figcaption>
       </figure>
 
-      <figure class="tile rev d1 video-tile" aria-label="Builder progress timelapse video preview">
+      <figure class="tile rev d1 video-tile builder-vertical" aria-label="Builder progress timelapse video preview">
         <video
           class="art portfolio-video"
           src="assets/builder-progress-timelapse.mp4"
