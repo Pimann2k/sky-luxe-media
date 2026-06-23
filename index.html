@@ -299,7 +299,19 @@ h3{font-size:1.3rem}
 .tile .meta small{display:block;font-size:.62rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:#E8C98A;margin-bottom:.25rem}
 .tile .meta h3{font-size:1.08rem;color:#fff}
 
-/* ---------- portfolio video hover card ---------- */
+/* ---------- portfolio video hover card + featured reel layout ---------- */
+.featured-reels {
+  display: grid;
+  grid-template-columns: minmax(0, 1.28fr) minmax(250px, .72fr);
+  gap: 1.2rem;
+  align-items: stretch;
+  margin-bottom: 1.2rem;
+}
+
+.sample-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
 .video-tile {
   position: relative;
   overflow: hidden;
@@ -311,17 +323,27 @@ h3{font-size:1.3rem}
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   object-position: center center;
   display: block;
-  background: #191B1F;
   z-index: 0;
   filter: saturate(.82) contrast(1.04);
   transition: transform .55s ease, filter .55s ease;
 }
 
-/* Only the builder timelapse stays uncropped because it is vertical. */
+.luxury-feature-tile {
+  aspect-ratio: 16 / 9;
+}
+
+.luxury-feature-tile .portfolio-video {
+  object-fit: cover;
+  background: #191B1F;
+}
+
 .builder-video-tile {
+  aspect-ratio: 9 / 16;
+  width: min(100%, 330px);
+  justify-self: center;
+  align-self: stretch;
   background: #000;
 }
 
@@ -331,8 +353,11 @@ h3{font-size:1.3rem}
 }
 
 .video-tile:hover .portfolio-video {
-  transform: scale(1.06);
   filter: saturate(.95) contrast(1.08);
+}
+
+.luxury-feature-tile:hover .portfolio-video {
+  transform: scale(1.04);
 }
 
 .builder-video-tile:hover .portfolio-video {
@@ -384,6 +409,21 @@ h3{font-size:1.3rem}
   font-size: .62rem;
   letter-spacing: .16em;
   text-transform: uppercase;
+}
+
+@media(max-width: 760px) {
+  .featured-reels {
+    grid-template-columns: 1fr;
+  }
+
+  .luxury-feature-tile {
+    aspect-ratio: 4 / 3;
+  }
+
+  .builder-video-tile {
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
 }
 
 
@@ -786,13 +826,12 @@ footer p{font-size:.86rem;font-weight:500}
       </p>
     </div>
 
-    <div class="port-grid">
+    <div class="featured-reels">
 
-      <figure class="tile rev video-tile" aria-label="Luxury Property Showcase Demo video preview">
+      <figure class="tile rev video-tile luxury-feature-tile" aria-label="Luxury Property Showcase Demo video preview">
         <video
           class="art portfolio-video"
           src="assets/luxury-property-showcase-demo.mp4"
-          autoplay
           muted
           loop
           playsinline
@@ -801,7 +840,7 @@ footer p{font-size:.86rem;font-weight:500}
 
         <div class="ov"></div>
 
-        <span class="play-hint">Hover preview · Click for sound</span>
+        <span class="play-hint">Hover to play · Hover to play · Click for sound</span>
 
         <figcaption class="meta">
           <small>Real footage with AI-assisted edit</small>
@@ -813,7 +852,6 @@ footer p{font-size:.86rem;font-weight:500}
         <video
           class="art portfolio-video"
           src="assets/builder-progress-timelapse.mp4"
-          autoplay
           muted
           loop
           playsinline
@@ -822,13 +860,17 @@ footer p{font-size:.86rem;font-weight:500}
 
         <div class="ov"></div>
 
-        <span class="play-hint">Hover preview · Click for sound</span>
+        <span class="play-hint">Hover to play · Click for sound</span>
 
         <figcaption class="meta">
           <small>AI-assisted concept</small>
           <h3>Builder progress — project timelapse</h3>
         </figcaption>
       </figure>
+
+    </div>
+
+    <div class="port-grid sample-grid">
 
       <figure class="tile rev d2">
         <div class="art t3"></div>
@@ -1235,7 +1277,8 @@ safe(function(){
 
 
 
-/* ---------- portfolio video autoplay preview + click for sound ---------- */
+
+/* ---------- portfolio video hover only + click for sound ---------- */
 safe(function(){
   var videoTiles = document.querySelectorAll('.video-tile');
 
@@ -1244,46 +1287,43 @@ safe(function(){
     if(!video) return;
 
     video.removeAttribute('controls');
-    video.setAttribute('autoplay', '');
+    video.removeAttribute('autoplay');
     video.muted = true;
     video.loop = true;
     video.playsInline = true;
-    video.preload = 'auto';
+    video.preload = 'metadata';
     video.volume = 0.85;
 
     var soundOn = false;
 
-    function playMutedPreview(){
+    function resetVideo(){
+      video.pause();
+      video.currentTime = 0;
+      video.muted = true;
+      soundOn = false;
+      tile.classList.remove('sound-on');
+    }
+
+    tile.addEventListener('mouseenter', function(){
       if (!soundOn) {
         video.muted = true;
       }
       video.play().catch(function(){});
-    }
-
-    playMutedPreview();
-
-    tile.addEventListener('mouseenter', function(){
-      playMutedPreview();
     });
 
     tile.addEventListener('mouseleave', function(){
-      if (!soundOn) {
-        video.play().catch(function(){});
-      }
+      resetVideo();
     });
 
     tile.addEventListener('click', function(){
-      soundOn = !soundOn;
-
-      if (soundOn) {
+      if (!soundOn) {
+        soundOn = true;
         video.muted = false;
         video.volume = 0.85;
         tile.classList.add('sound-on');
         video.play().catch(function(){});
       } else {
-        video.muted = true;
-        tile.classList.remove('sound-on');
-        video.play().catch(function(){});
+        resetVideo();
       }
     });
   });
