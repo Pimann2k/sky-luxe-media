@@ -299,19 +299,7 @@ h3{font-size:1.3rem}
 .tile .meta small{display:block;font-size:.62rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:#E8C98A;margin-bottom:.25rem}
 .tile .meta h3{font-size:1.08rem;color:#fff}
 
-/* ---------- portfolio video hover card + featured reel layout ---------- */
-.featured-reels {
-  display: grid;
-  grid-template-columns: minmax(0, 1.28fr) minmax(250px, .72fr);
-  gap: 1.2rem;
-  align-items: stretch;
-  margin-bottom: 1.2rem;
-}
-
-.sample-grid {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
+/* ---------- portfolio video hover card ---------- */
 .video-tile {
   position: relative;
   overflow: hidden;
@@ -323,45 +311,18 @@ h3{font-size:1.3rem}
   inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   object-position: center center;
   display: block;
+  background: #191B1F;
   z-index: 0;
   filter: saturate(.82) contrast(1.04);
   transition: transform .55s ease, filter .55s ease;
 }
 
-.luxury-feature-tile {
-  aspect-ratio: 16 / 9;
-}
-
-.luxury-feature-tile .portfolio-video {
-  object-fit: cover;
-  background: #191B1F;
-}
-
-.builder-video-tile {
-  aspect-ratio: 9 / 16;
-  width: min(100%, 330px);
-  justify-self: center;
-  align-self: stretch;
-  background: #000;
-}
-
-.builder-video-tile .portfolio-video {
-  object-fit: contain;
-  background: #000;
-}
-
 .video-tile:hover .portfolio-video {
+  transform: scale(1.06);
   filter: saturate(.95) contrast(1.08);
-}
-
-.luxury-feature-tile:hover .portfolio-video {
-  transform: scale(1.04);
-}
-
-.builder-video-tile:hover .portfolio-video {
-  transform: scale(1.01);
 }
 
 .video-tile .ov {
@@ -374,21 +335,42 @@ h3{font-size:1.3rem}
   pointer-events: none;
 }
 
-.video-tile:hover .video-tile.sound-on @media(max-width: 760px) {
-  .featured-reels {
-    grid-template-columns: 1fr;
-  }
+.play-hint {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 4;
+  padding: .42rem .72rem;
+  border-radius: 999px;
+  background: rgba(8, 9, 11, .62);
+  border: 1px solid rgba(255, 255, 255, .22);
+  color: #fff;
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  opacity: .85;
+  transition: opacity .25s ease, transform .25s ease, background .25s ease;
+}
 
-  .luxury-feature-tile {
-    aspect-ratio: 4 / 3;
-  }
+.video-tile:hover .play-hint {
+  opacity: 1;
+}
 
-  .builder-video-tile {
-    width: min(100%, 360px);
-    margin-inline: auto;
-  }
+.video-tile.sound-on .play-hint {
+  background: rgba(154, 120, 67, .92);
+  color: #fff;
+  font-size: 0;
+}
 
-  }
+.video-tile.sound-on .play-hint::after {
+  content: "Sound on";
+  font-size: .62rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
 
 
 /* ---------- process ---------- */
@@ -790,19 +772,22 @@ footer p{font-size:.86rem;font-weight:500}
       </p>
     </div>
 
-    <div class="featured-reels">
+    <div class="port-grid">
 
-      <figure class="tile rev video-tile luxury-feature-tile" aria-label="Luxury Property Showcase Demo video preview">
+      <figure class="tile rev video-tile" aria-label="Luxury Property Showcase Demo video preview">
         <video
           class="art portfolio-video"
           src="assets/luxury-property-showcase-demo.mp4"
+          autoplay
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="auto"
         ></video>
 
         <div class="ov"></div>
+
+        <span class="play-hint">Hover preview · Click for sound</span>
 
         <figcaption class="meta">
           <small>Real footage with AI-assisted edit</small>
@@ -810,27 +795,26 @@ footer p{font-size:.86rem;font-weight:500}
         </figcaption>
       </figure>
 
-      <figure class="tile rev d1 video-tile builder-video-tile" aria-label="Builder progress timelapse video preview">
+      <figure class="tile rev d1 video-tile" aria-label="Builder progress timelapse video preview">
         <video
           class="art portfolio-video"
           src="assets/builder-progress-timelapse.mp4"
+          autoplay
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="auto"
         ></video>
 
         <div class="ov"></div>
+
+        <span class="play-hint">Hover preview · Click for sound</span>
 
         <figcaption class="meta">
           <small>AI-assisted concept</small>
           <h3>Builder progress — project timelapse</h3>
         </figcaption>
       </figure>
-
-    </div>
-
-    <div class="port-grid sample-grid">
 
       <figure class="tile rev d2">
         <div class="art t3"></div>
@@ -1237,9 +1221,7 @@ safe(function(){
 
 
 
-
-
-/* ---------- portfolio video hover only + click for sound ---------- */
+/* ---------- portfolio video autoplay preview + click for sound ---------- */
 safe(function(){
   var videoTiles = document.querySelectorAll('.video-tile');
 
@@ -1248,43 +1230,46 @@ safe(function(){
     if(!video) return;
 
     video.removeAttribute('controls');
-    video.removeAttribute('autoplay');
+    video.setAttribute('autoplay', '');
     video.muted = true;
     video.loop = true;
     video.playsInline = true;
-    video.preload = 'metadata';
+    video.preload = 'auto';
     video.volume = 0.85;
 
     var soundOn = false;
 
-    function resetVideo(){
-      video.pause();
-      video.currentTime = 0;
-      video.muted = true;
-      soundOn = false;
-      tile.classList.remove('sound-on');
-    }
-
-    tile.addEventListener('mouseenter', function(){
+    function playMutedPreview(){
       if (!soundOn) {
         video.muted = true;
       }
       video.play().catch(function(){});
+    }
+
+    playMutedPreview();
+
+    tile.addEventListener('mouseenter', function(){
+      playMutedPreview();
     });
 
     tile.addEventListener('mouseleave', function(){
-      resetVideo();
+      if (!soundOn) {
+        video.play().catch(function(){});
+      }
     });
 
     tile.addEventListener('click', function(){
-      if (!soundOn) {
-        soundOn = true;
+      soundOn = !soundOn;
+
+      if (soundOn) {
         video.muted = false;
         video.volume = 0.85;
         tile.classList.add('sound-on');
         video.play().catch(function(){});
       } else {
-        resetVideo();
+        video.muted = true;
+        tile.classList.remove('sound-on');
+        video.play().catch(function(){});
       }
     });
   });
