@@ -609,8 +609,8 @@ footer p{font-size:.86rem;font-weight:500}
 
 <!-- ================= HERO ================= -->
 <header class="hero" id="top">
-  <video class="hero-video" autoplay muted loop playsinline preload="auto"  aria-hidden="true">
-    <source src="assets/skyluxe-hero1.mp4?v=4" type="video/mp4">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/skyluxe-hero-poster.jpg" aria-hidden="true">
+    <source src="assets/skyluxe-hero1.mp4" type="video/mp4">
   </video>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-in">
@@ -939,27 +939,13 @@ footer p{font-size:.86rem;font-weight:500}
         <input type="hidden" name="access_key" value="55302ff4-e47f-474f-ba77-1d18e28bd3ff">
         <input type="hidden" name="subject" value="New quote request from SkyLuxe Media website">
         <input type="hidden" name="from_name" value="SkyLuxe Media Website">
-        <input type="hidden" name="redirect" value="">
         <input type="checkbox" name="botcheck" style="display:none">
 
         <div class="fgrid">
-          <div class="field">
-            <label for="cn">Name</label>
-            <input id="cn" name="name" type="text" placeholder="Your name" autocomplete="name" required>
-          </div>
-
-          <div class="field">
-            <label for="ce">Email</label>
-            <input id="ce" name="email" type="email" placeholder="you@email.com" autocomplete="email" required>
-          </div>
-
-          <div class="field">
-            <label for="cp">Phone</label>
-            <input id="cp" name="phone" type="tel" placeholder="04xx xxx xxx" autocomplete="tel">
-          </div>
-
-          <div class="field">
-            <label for="cs">Service needed</label>
+          <div class="field"><label for="cn">Name</label><input id="cn" name="name" type="text" placeholder="Your name" autocomplete="name" required></div>
+          <div class="field"><label for="ce">Email</label><input id="ce" name="email" type="email" placeholder="you@email.com" autocomplete="email" required></div>
+          <div class="field"><label for="cp">Phone</label><input id="cp" name="phone" type="tel" placeholder="04xx xxx xxx" autocomplete="tel"></div>
+          <div class="field"><label for="cs">Service needed</label>
             <select id="cs" name="service">
               <option>Property Starter Pack — aerial + ground photos + reel ($250+)</option>
               <option>Sky Story Reel — cinematic short reel ($350+)</option>
@@ -970,22 +956,11 @@ footer p{font-size:.86rem;font-weight:500}
               <option>Custom / not sure yet — happy to chat</option>
             </select>
           </div>
-
-          <div class="field full">
-            <label for="ca">Property / project address</label>
-            <input id="ca" name="address" type="text" placeholder="Street address, suburb">
-          </div>
-
-          <div class="field full">
-            <label for="cm">Message</label>
-            <textarea id="cm" name="message" placeholder="The place, your timing, anything else we should know." required></textarea>
-          </div>
-
+          <div class="field full"><label for="ca">Property / project address</label><input id="ca" name="address" type="text" placeholder="Street address, suburb"></div>
+          <div class="field full"><label for="cm">Message</label><textarea id="cm" name="message" placeholder="The place, your timing, anything else we should know." required></textarea></div>
           <div class="full">
             <button class="btn btn-bronze" id="submitBtn" type="submit" style="width:100%">Send Enquiry</button>
-            <p id="formStatus" style="margin-top:.9rem;font-size:.9rem;color:var(--ink-2)">
-              Submit your details and we’ll reply to your quote request as soon as possible.
-            </p>
+            <p id="formStatus" style="margin-top:.9rem;font-size:.9rem;color:var(--ink-2)">Submit your details and we’ll reply to your quote request as soon as possible.</p>
           </div>
         </div>
       </form>
@@ -1322,8 +1297,10 @@ safe(function(){
   });
 });
 
-
 /* ---------- form ---------- */
+/* form uses mailto — native browser handles submission */
+
+/* ---------- Web3Forms quote form ---------- */
 safe(function(){
   var form = document.getElementById('cform');
   var status = document.getElementById('formStatus');
@@ -1366,3 +1343,8 @@ safe(function(){
     }
   });
 });
+
+})();
+</script>
+</body>
+</html>
