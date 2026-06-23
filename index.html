@@ -778,11 +778,10 @@ footer p{font-size:.86rem;font-weight:500}
         <video
           class="art portfolio-video"
           src="assets/luxury-property-showcase-demo.mp4"
-          autoplay
           muted
           loop
           playsinline
-          preload="auto"
+          preload="metadata"
         ></video>
 
         <div class="ov"></div>
@@ -799,11 +798,10 @@ footer p{font-size:.86rem;font-weight:500}
         <video
           class="art portfolio-video"
           src="assets/builder-progress-timelapse.mp4"
-          autoplay
           muted
           loop
           playsinline
-          preload="auto"
+          preload="metadata"
         ></video>
 
         <div class="ov"></div>
@@ -1221,7 +1219,8 @@ safe(function(){
 
 
 
-/* ---------- portfolio video autoplay preview + click for sound ---------- */
+
+/* ---------- portfolio video hover preview + click for sound ---------- */
 safe(function(){
   var videoTiles = document.querySelectorAll('.video-tile');
 
@@ -1230,46 +1229,44 @@ safe(function(){
     if(!video) return;
 
     video.removeAttribute('controls');
-    video.setAttribute('autoplay', '');
+    video.removeAttribute('autoplay');
+
     video.muted = true;
     video.loop = true;
     video.playsInline = true;
-    video.preload = 'auto';
+    video.preload = 'metadata';
     video.volume = 0.85;
 
     var soundOn = false;
 
-    function playMutedPreview(){
-      if (!soundOn) {
-        video.muted = true;
-      }
-      video.play().catch(function(){});
+    function resetVideo(){
+      video.pause();
+      video.currentTime = 0;
+      video.muted = true;
+      soundOn = false;
+      tile.classList.remove('sound-on');
     }
 
-    playMutedPreview();
-
     tile.addEventListener('mouseenter', function(){
-      playMutedPreview();
+      video.muted = true;
+      soundOn = false;
+      tile.classList.remove('sound-on');
+      video.play().catch(function(){});
     });
 
     tile.addEventListener('mouseleave', function(){
-      if (!soundOn) {
-        video.play().catch(function(){});
-      }
+      resetVideo();
     });
 
     tile.addEventListener('click', function(){
-      soundOn = !soundOn;
-
-      if (soundOn) {
+      if (!soundOn) {
+        soundOn = true;
         video.muted = false;
         video.volume = 0.85;
         tile.classList.add('sound-on');
         video.play().catch(function(){});
       } else {
-        video.muted = true;
-        tile.classList.remove('sound-on');
-        video.play().catch(function(){});
+        resetVideo();
       }
     });
   });
