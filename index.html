@@ -299,6 +299,50 @@ h3{font-size:1.3rem}
 .tile .meta small{display:block;font-size:.62rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:#E8C98A;margin-bottom:.25rem}
 .tile .meta h3{font-size:1.08rem;color:#fff}
 
+
+/* ---------- portfolio cards in production ---------- */
+.portfolio-soon{
+  cursor:default;
+}
+
+.portfolio-soon:hover{
+  transform:none;
+  box-shadow:var(--shadow);
+}
+
+.portfolio-soon:hover .art{
+  transform:none;
+}
+
+.portfolio-soon .art{
+  filter:saturate(.35) brightness(.72);
+}
+
+.portfolio-soon .meta p{
+  margin-top:.35rem;
+  color:rgba(255,255,255,.72);
+  font-size:.78rem;
+  line-height:1.4;
+}
+
+.soon-badge{
+  position:absolute;
+  top:1rem;
+  right:1rem;
+  z-index:4;
+  padding:.42rem .78rem;
+  border-radius:999px;
+  background:rgba(8,9,11,.72);
+  border:1px solid rgba(255,255,255,.22);
+  color:#fff;
+  font-size:.62rem;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  backdrop-filter:blur(10px);
+  pointer-events:none;
+}
+
 /* ---------- portfolio video hover card ---------- */
 .video-tile {
   position: relative;
@@ -835,30 +879,36 @@ footer p{font-size:.86rem;font-weight:500}
         </figcaption>
       </figure>
 
-      <figure class="tile rev d2">
+      <figure class="tile rev d2 portfolio-soon" aria-label="Coastal stay portfolio video in production">
         <div class="art t3"></div>
         <div class="ov"></div>
+        <div class="soon-badge">In production</div>
         <figcaption class="meta">
           <small>AI-assisted concept</small>
-          <h3>Coastal stay — the walk to the water</h3>
+          <h3>Coastal stay — waterfront living</h3>
+          <p>New portfolio film coming soon.</p>
         </figcaption>
       </figure>
 
-      <figure class="tile rev">
+      <figure class="tile rev portfolio-soon" aria-label="Acreage portfolio content in production">
         <div class="art t4"></div>
         <div class="ov"></div>
+        <div class="soon-badge">In production</div>
         <figcaption class="meta">
-          <small>Real sample</small>
+          <small>Upcoming portfolio work</small>
           <h3>Acreage — land with room to breathe</h3>
+          <p>New aerial property content coming soon.</p>
         </figcaption>
       </figure>
 
-      <figure class="tile rev d1">
+      <figure class="tile rev d1 portfolio-soon" aria-label="Local business portfolio content in production">
         <div class="art t5"></div>
         <div class="ov"></div>
+        <div class="soon-badge">In production</div>
         <figcaption class="meta">
-          <small>AI-assisted concept</small>
+          <small>Upcoming portfolio work</small>
           <h3>Local business — a venue in its best light</h3>
+          <p>New promotional content coming soon.</p>
         </figcaption>
       </figure>
 
