@@ -6,6 +6,7 @@
 <link rel="icon" type="image/png" href="assets/skyluxe-icon.png">
 <link rel="apple-touch-icon" href="assets/skyluxe-icon.png">
 <link rel="preload" as="image" href="assets/skyluxe-logo-nav.png">
+<link rel="preload" as="image" href="assets/hero%20poster.png">
 <title>Property & Aerial Media Brisbane | Drone Photography, Reels & Construction Content — SkyLuxe Media</title>
 <meta name="description" content="SkyLuxe Media is a Brisbane property and aerial media business. Drone photography, ground-level property photos, cinematic short reels, builder progress content, Airbnb visuals and concept work. CASA-accredited. From $250.">
 <meta property="og:title" content="SkyLuxe Media — Property &amp; Aerial Media, Brisbane">
@@ -180,6 +181,17 @@ h3{font-size:1.3rem}
 }
 .scrolldown::after{content:"";width:1.5px;height:30px;background:rgba(255,255,255,.7);animation:drop 2.2s ease-in-out infinite}
 @keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+
+/* ---------- performance ---------- */
+main > section{
+  content-visibility:auto;
+  contain-intrinsic-size:900px;
+}
+
+@media(max-width:880px){
+  #grain{display:none}
+}
 
 /* ---------- services ---------- */
 .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.4rem}
@@ -631,7 +643,7 @@ footer p{font-size:.86rem;font-weight:500}
 <!-- ================= NAV ================= -->
 <nav class="nav" id="nav" aria-label="Main navigation">
   <div class="nav-in">
-    <a class="logo" href="#top" aria-label="SkyLuxe Media home"><img class="logo-img" src="assets/skyluxe-logo-nav.png" alt="SkyLuxe Media"><span class="logo-text">SkyLuxe Media</span></a>
+    <a class="logo" href="#top" aria-label="SkyLuxe Media home"><img class="logo-img" src="assets/skyluxe-logo-nav.png" decoding="async" alt="SkyLuxe Media"><span class="logo-text">SkyLuxe Media</span></a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#packages">Packages</a></li>
@@ -654,8 +666,16 @@ footer p{font-size:.86rem;font-weight:500}
 
 <!-- ================= HERO ================= -->
 <header class="hero" id="top">
-  <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-    <source src="assets/Skyluxe-hero-nsw-2.MP4?v=2" type="video/mp4">
+  <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster="assets/hero%20poster.png"
+    aria-hidden="true">
+    <source src="assets/Hero.mp4?v=1" type="video/mp4">
   </video>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-in">
@@ -842,11 +862,11 @@ footer p{font-size:.86rem;font-weight:500}
       <figure class="tile rev video-tile" aria-label="Luxury Property Showcase Demo video preview">
         <video
           class="art portfolio-video"
-          src="assets/luxury-property-showcase-demo.mp4"
+          data-src="assets/luxury-property-showcase-demo.mp4"
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="none"
         ></video>
 
         <div class="ov"></div>
@@ -862,11 +882,11 @@ footer p{font-size:.86rem;font-weight:500}
       <figure class="tile rev d1 video-tile builder-vertical" aria-label="Builder progress timelapse video preview">
         <video
           class="art portfolio-video"
-          src="assets/builder-progress-timelapse.mp4"
+          data-src="assets/builder-progress-timelapse.mp4"
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="none"
         ></video>
 
         <div class="ov"></div>
@@ -915,11 +935,11 @@ footer p{font-size:.86rem;font-weight:500}
       <figure class="tile rev d2 video-tile" aria-label="Hinterland cinematic reel video preview">
         <video
           class="art portfolio-video"
-          src="assets/hinterland-hero.mp4"
+          data-src="assets/hinterland-hero.mp4"
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="none"
         ></video>
 
         <div class="ov"></div>
@@ -1012,7 +1032,7 @@ footer p{font-size:.86rem;font-weight:500}
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="foot-in">
-    <a class="logo" href="#top" aria-label="SkyLuxe Media home"><img class="logo-img" src="assets/skyluxe-logo-nav.png" alt="SkyLuxe Media"><span class="logo-text">SkyLuxe Media</span></a>
+    <a class="logo" href="#top" aria-label="SkyLuxe Media home"><img class="logo-img" src="assets/skyluxe-logo-nav.png" decoding="async" alt="SkyLuxe Media"><span class="logo-text">SkyLuxe Media</span></a>
     <p>© 2026 SkyLuxe Media · Property &amp; aerial media · Brisbane, Australia</p>
     <div class="flinks">
       <a href="#services">Services</a><a href="#packages">Packages</a><a href="contact.html">Contact</a><a href="https://www.instagram.com/skyluxemediavisuals/" target="_blank" rel="noopener">Instagram</a>
@@ -1097,189 +1117,39 @@ safe(function(){
   up();
 });
 
-/* ---------- hero canvas: tonal aerial world + drone & camera ---------- */
-safe(function(){
-  if(reduced) return;
-  var canvas=document.getElementById('heroCanvas');
-  if(!canvas||!canvas.getContext) return;
-  var ctx=canvas.getContext('2d');
-  var W,H,DPR,mouseX=0,ridges=[],clouds=[];
-  function rs(){
-    DPR=Math.min(window.devicePixelRatio||1,1.6);
-    var r=canvas.parentElement.getBoundingClientRect();
-    W=r.width;H=r.height;
-    canvas.width=W*DPR;canvas.height=H*DPR;
-    ctx.setTransform(DPR,0,0,DPR,0,0);
-    clouds=[];var cn=Math.max(4,Math.round(W/300));
-    for(var i=0;i<cn;i++) clouds.push({x:Math.random()*W*1.3-W*.15,y:H*(.1+Math.random()*.3),s:.7+Math.random()*1.3,sp:.06+Math.random()*.1,seed:Math.random()*7});
-  }
-  rs();
-  window.addEventListener('resize',rs,{passive:true});
-  window.addEventListener('pointermove',function(e){ mouseX=(e.clientX/W-.5)*2; },{passive:true});
-  window.addEventListener('deviceorientation',function(e){ if(e.gamma!=null) mouseX=clamp(e.gamma/30,-1,1); },{passive:true});
-
-  var RID=[
-    {base:.62,amp:.05,f:.0022,ph:1.4,c0:[110,116,122],c1:[70,74,80],par:8},
-    {base:.7,amp:.06,f:.0028,ph:4.2,c0:[82,86,92],c1:[52,55,60],par:16},
-    {base:.79,amp:.07,f:.0035,ph:2.4,c0:[56,59,64],c1:[34,36,40],par:26},
-    {base:.9,amp:.07,f:.0042,ph:5.6,c0:[36,38,42],c1:[20,21,24],par:38}
-  ];
-  function ry(x,L){ return H*L.base+H*L.amp*(Math.sin(x*L.f+L.ph)+.5*Math.sin(x*L.f*2.1+L.ph*2.2)); }
-
-  var dr={x:-100,y:0,a:0}, cm={x:-100,y:0,a:0}, trail=[];
-  var t0=performance.now();
-  function loop(now){
-    var t=(now-t0)/1000;
-    ctx.clearRect(0,0,W,H);
-    /* sky: charcoal to bone glow */
-    var g=ctx.createLinearGradient(0,0,0,H);
-    g.addColorStop(0,'#1B1D22'); g.addColorStop(.45,'#3A3E46'); g.addColorStop(.62,'#8A867C'); g.addColorStop(.72,'#4E4B45'); g.addColorStop(1,'#15161A');
-    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
-    /* low sun glow */
-    var sx=W*.68, sy=H*.6;
-    var sg=ctx.createRadialGradient(sx,sy,2,sx,sy,W*.32);
-    sg.addColorStop(0,'rgba(238,222,190,.55)'); sg.addColorStop(.3,'rgba(216,185,138,.22)'); sg.addColorStop(1,'rgba(216,185,138,0)');
-    ctx.fillStyle=sg; ctx.fillRect(0,0,W,H);
-    /* clouds */
-    for(var i=0;i<clouds.length;i++){
-      var c=clouds[i]; c.x+=c.sp;
-      if(c.x>W+200){c.x=-220;c.y=H*(.08+Math.random()*.32);}
-      var cx=c.x-mouseX*14*c.s, cy=c.y+Math.sin(t*.16+c.seed)*4;
-      ctx.fillStyle='rgba(216,214,208,.13)';
-      ctx.beginPath();
-      ctx.ellipse(cx,cy,70*c.s,16*c.s,0,0,6.283);
-      ctx.ellipse(cx+44*c.s,cy-8*c.s,46*c.s,13*c.s,0,0,6.283);
-      ctx.ellipse(cx-46*c.s,cy-4*c.s,40*c.s,11*c.s,0,0,6.283);
-      ctx.fill();
-    }
-    /* ridges */
-    for(var L2=0;L2<RID.length;L2++){
-      var L=RID[L2], off=t*L.par*.7+mouseX*L.par*3;
-      var rg=ctx.createLinearGradient(0,H*L.base-H*L.amp,0,H);
-      rg.addColorStop(0,'rgb('+L.c0.join(',')+')'); rg.addColorStop(1,'rgb('+L.c1.join(',')+')');
-      ctx.fillStyle=rg;
-      ctx.beginPath(); ctx.moveTo(0,H);
-      for(var x=0;x<=W;x+=16) ctx.lineTo(x,ry(x+off,L));
-      ctx.lineTo(W,H); ctx.closePath(); ctx.fill();
-    }
-    /* mist above ridges */
-    var hz=ctx.createLinearGradient(0,H*.55,0,H*.95);
-    hz.addColorStop(0,'rgba(160,156,148,0)'); hz.addColorStop(.5,'rgba(160,156,148,.12)'); hz.addColorStop(1,'rgba(160,156,148,0)');
-    ctx.fillStyle=hz; ctx.fillRect(0,H*.55,W,H*.4);
-
-    /* drone + camera alternating slowly over time */
-    var phase=(Math.sin(t*.07)+1)/2; /* 0..1 slow */
-    var aDr=clamp(phase*1.6,0,1), aCm=clamp((1-phase)*1.6,0,1);
-
-    /* drone */
-    (function(){
-      if(aDr<.03) return;
-      var nx=W*(.5+.27*Math.sin(t*.14)+.08*Math.sin(t*.44+1.2))-mouseX*36;
-      var ny=H*(.26+.05*Math.sin(t*.24+.6))+Math.sin(t*2.2)*2.5;
-      if(dr.x<-90){dr.x=nx;dr.y=ny;}
-      var dx=nx-dr.x; dr.x+=dx*.03; dr.y+=(ny-dr.y)*.03;
-      dr.a+=(clamp(dx*.005,-.35,.35)-dr.a)*.05;
-      trail.push({x:dr.x,y:dr.y}); if(trail.length>24) trail.shift();
-      for(var i2=1;i2<trail.length;i2++){
-        ctx.strokeStyle='rgba(216,185,138,'+(i2/trail.length*.2*aDr)+')';
-        ctx.lineWidth=.8+i2/trail.length*1.6; ctx.lineCap='round';
-        ctx.beginPath(); ctx.moveTo(trail[i2-1].x,trail[i2-1].y); ctx.lineTo(trail[i2].x,trail[i2].y); ctx.stroke();
-      }
-      ctx.save(); ctx.globalAlpha=aDr;
-      ctx.translate(dr.x,dr.y); ctx.rotate(dr.a);
-      var sc=(W<760?.75:1.05); ctx.scale(sc,sc);
-      var dark='#101113',mid='#26282C',lite='#54565C';
-      function disc(rx,ryy){
-        ctx.save(); ctx.translate(rx,ryy);
-        ctx.beginPath(); ctx.ellipse(0,0,12,3.4,0,0,6.283); ctx.fillStyle='rgba(16,17,19,.18)'; ctx.fill();
-        var a0=(t*26)%6.283;
-        ctx.beginPath(); ctx.ellipse(0,0,12,3.4,0,a0,a0+1.1);
-        ctx.strokeStyle='rgba(232,222,202,.65)'; ctx.lineWidth=1.2; ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(0,0,1.6,1.1,0,0,6.283); ctx.fillStyle=mid; ctx.fill();
-        ctx.restore();
-      }
-      disc(-20,-6); disc(20,-6);
-      ctx.lineCap='round';
-      [[-20,-6,3.2],[20,-6,3.2],[-15,6,3.6],[15,6,3.6]].forEach(function(a3){
-        ctx.beginPath(); ctx.moveTo(a3[0]*.25,a3[1]*.25); ctx.lineTo(a3[0],a3[1]);
-        ctx.strokeStyle=mid; ctx.lineWidth=a3[2]; ctx.stroke();
-      });
-      var bg2=ctx.createLinearGradient(0,-6,0,7);
-      bg2.addColorStop(0,lite); bg2.addColorStop(.5,mid); bg2.addColorStop(1,dark);
-      ctx.beginPath();
-      ctx.moveTo(-10,0); ctx.bezierCurveTo(-10,-5,-5,-6.5,0,-6.5);
-      ctx.bezierCurveTo(5,-6.5,10,-5,10,0); ctx.bezierCurveTo(10,3.8,5.5,6,0,6);
-      ctx.bezierCurveTo(-5.5,6,-10,3.8,-10,0); ctx.closePath();
-      ctx.fillStyle=bg2; ctx.fill();
-      ctx.beginPath(); ctx.ellipse(-2,-3.2,4.6,1.7,-.2,0,6.283); ctx.fillStyle='rgba(255,255,255,.2)'; ctx.fill();
-      ctx.beginPath(); ctx.arc(0,7,2.6,0,6.283); ctx.fillStyle=dark; ctx.fill();
-      ctx.beginPath(); ctx.arc(-.2,6.6,.45,0,6.283); ctx.fillStyle='rgba(255,255,255,.9)'; ctx.fill();
-      disc(-15,6); disc(15,6);
-      if(Math.sin(t*4.2)>.9){
-        ctx.beginPath(); ctx.arc(8.4,-1,1.2,0,6.283);
-        ctx.fillStyle='rgba(220,100,84,.9)'; ctx.fill();
-      }
-      ctx.restore(); ctx.globalAlpha=1;
-    })();
-
-    /* camera gimbal */
-    (function(){
-      if(aCm<.03) return;
-      var nx=W*(.42+.2*Math.sin(t*.1+2.1))+mouseX*26;
-      var ny=H*(.3+.04*Math.sin(t*.18+1.1))+Math.sin(t*1.8)*2.5;
-      if(cm.x<-90){cm.x=nx;cm.y=ny;}
-      cm.x+=(nx-cm.x)*.025; cm.y+=(ny-cm.y)*.025;
-      cm.a+=((Math.sin(t*.15)*.1+mouseX*.05)-cm.a)*.04;
-      ctx.save(); ctx.globalAlpha=aCm;
-      ctx.translate(cm.x,cm.y); ctx.rotate(cm.a);
-      var sc=(W<760?.7:1); ctx.scale(sc,sc);
-      var dark='#101113',mid='#24262A',lite='#52545A';
-      ctx.strokeStyle='rgba(120,122,128,.5)'; ctx.lineWidth=2;
-      ctx.beginPath(); ctx.arc(0,0,28,-2.4,1.6); ctx.stroke();
-      ctx.beginPath(); ctx.arc(0,-28,4.6,0,6.283);
-      var pg=ctx.createRadialGradient(-1.2,-29.2,1,0,-28,4.6);
-      pg.addColorStop(0,lite); pg.addColorStop(1,dark);
-      ctx.fillStyle=pg; ctx.fill();
-      var bg3=ctx.createLinearGradient(0,-11,0,11);
-      bg3.addColorStop(0,lite); bg3.addColorStop(.5,mid); bg3.addColorStop(1,dark);
-      ctx.beginPath();
-      ctx.moveTo(-15,-9); ctx.lineTo(7,-11); ctx.quadraticCurveTo(12,-11,12,-6);
-      ctx.lineTo(12,7); ctx.quadraticCurveTo(12,11,7,11);
-      ctx.lineTo(-15,9); ctx.quadraticCurveTo(-19,8,-19,4);
-      ctx.lineTo(-19,-4); ctx.quadraticCurveTo(-19,-8,-15,-9);
-      ctx.closePath(); ctx.fillStyle=bg3; ctx.fill();
-      ctx.beginPath(); ctx.ellipse(-4,-8.6,10,1.5,-.06,0,6.283); ctx.fillStyle='rgba(244,242,238,.14)'; ctx.fill();
-      var lg=ctx.createLinearGradient(12,-7,12,7);
-      lg.addColorStop(0,lite); lg.addColorStop(.5,mid); lg.addColorStop(1,dark);
-      ctx.fillStyle=lg; ctx.fillRect(12,-7,15,14);
-      ctx.strokeStyle='rgba(10,10,12,.6)'; ctx.lineWidth=1.3;
-      ctx.beginPath(); ctx.moveTo(17,-7); ctx.lineTo(17,7); ctx.moveTo(22,-7); ctx.lineTo(22,7); ctx.stroke();
-      ctx.beginPath(); ctx.ellipse(27,0,3.1,7.2,0,0,6.283);
-      var fg=ctx.createRadialGradient(26,-1.8,1,27,0,7.2);
-      fg.addColorStop(0,'#39414F'); fg.addColorStop(.6,'#0F1318'); fg.addColorStop(1,'#05060A');
-      ctx.fillStyle=fg; ctx.fill();
-      ctx.strokeStyle='rgba(232,222,202,.4)'; ctx.lineWidth=1;
-      ctx.beginPath(); ctx.ellipse(27,0,3.1,7.2,0,0,6.283); ctx.stroke();
-      ctx.beginPath(); ctx.ellipse(26.4,-2.8,.8,1.8,0,0,6.283); ctx.fillStyle='rgba(255,255,255,.7)'; ctx.fill();
-      ctx.beginPath(); ctx.ellipse(27.5,2.2,.45,1,0,0,6.283); ctx.fillStyle='rgba(216,185,138,.55)'; ctx.fill();
-      if(Math.sin(t*3.4)>.4){
-        ctx.beginPath(); ctx.arc(-14,-5,1.1,0,6.283);
-        ctx.fillStyle='rgba(220,100,84,.9)'; ctx.fill();
-      }
-      ctx.restore(); ctx.globalAlpha=1;
-    })();
-
-    requestAnimationFrame(loop);
-  }
-  requestAnimationFrame(loop);
-});
-
-
-
-
-/* ---------- portfolio video hover preview + click for sound ---------- */
+/* ---------- lazy portfolio video preview + click for sound ---------- */
 safe(function(){
   var videoTiles = document.querySelectorAll('.video-tile');
+
+  function loadVideo(video){
+    if(video.dataset.src){
+      video.src = video.dataset.src;
+      video.removeAttribute('data-src');
+      video.preload = 'metadata';
+      video.load();
+    }
+  }
+
+  if('IntersectionObserver' in window){
+    var videoObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var video = entry.target.querySelector('video');
+          if(video) loadVideo(video);
+          videoObserver.unobserve(entry.target);
+        }
+      });
+    },{rootMargin:'650px 0px',threshold:0});
+
+    Array.prototype.forEach.call(videoTiles,function(tile){
+      videoObserver.observe(tile);
+    });
+  }else{
+    Array.prototype.forEach.call(videoTiles,function(tile){
+      var video = tile.querySelector('video');
+      if(video) loadVideo(video);
+    });
+  }
 
   Array.prototype.forEach.call(videoTiles, function(tile){
     var video = tile.querySelector('video');
@@ -1287,18 +1157,24 @@ safe(function(){
 
     video.removeAttribute('controls');
     video.removeAttribute('autoplay');
-
     video.muted = true;
     video.loop = true;
     video.playsInline = true;
-    video.preload = 'metadata';
     video.volume = 0.85;
 
     var soundOn = false;
 
+    function playVideo(){
+      loadVideo(video);
+      var playPromise = video.play();
+      if(playPromise && typeof playPromise.catch === 'function'){
+        playPromise.catch(function(){});
+      }
+    }
+
     function resetVideo(){
       video.pause();
-      video.currentTime = 0;
+      try{ video.currentTime = 0; }catch(e){}
       video.muted = true;
       soundOn = false;
       tile.classList.remove('sound-on');
@@ -1308,7 +1184,7 @@ safe(function(){
       video.muted = true;
       soundOn = false;
       tile.classList.remove('sound-on');
-      video.play().catch(function(){});
+      playVideo();
     });
 
     tile.addEventListener('mouseleave', function(){
@@ -1316,13 +1192,15 @@ safe(function(){
     });
 
     tile.addEventListener('click', function(){
-      if (!soundOn) {
+      loadVideo(video);
+
+      if(!soundOn){
         soundOn = true;
         video.muted = false;
         video.volume = 0.85;
         tile.classList.add('sound-on');
-        video.play().catch(function(){});
-      } else {
+        playVideo();
+      }else{
         resetVideo();
       }
     });
