@@ -449,6 +449,12 @@ main > section{
 }
 
 
+
+.portfolio-actions{
+  margin-top:2.4rem;
+  text-align:center;
+}
+
 /* ---------- process ---------- */
 .steps{position:relative;max-width:720px;margin:0 auto}
 .steps::before{content:"";position:absolute;left:27px;top:16px;bottom:16px;width:2px;background:rgba(154,120,67,.25)}
@@ -634,6 +640,20 @@ footer p{font-size:.86rem;font-weight:500}
     font-size:.62rem;
   }
 }
+
+/* ---------- mobile hero: show the full landscape video ---------- */
+@media(max-width:600px){
+  .hero{
+    background:#15171B;
+  }
+
+  .hero-video{
+    object-fit:contain;
+    object-position:center center;
+    background:#15171B;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -647,7 +667,7 @@ footer p{font-size:.86rem;font-weight:500}
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#packages">Packages</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#about-me">About</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -660,7 +680,7 @@ footer p{font-size:.86rem;font-weight:500}
   </div>
 </nav>
 <div class="mmenu" id="mmenu">
-  <a href="#services">Services</a><a href="#packages">Packages</a><a href="#portfolio">Portfolio</a>
+  <a href="#services">Services</a><a href="#packages">Packages</a><a href="portfolio.html">Portfolio</a>
   <a href="#process">Process</a><a href="#about-me">About</a><a href="#faq">FAQ</a><a href="contact.html">Contact</a>
 </div>
 
@@ -851,7 +871,7 @@ footer p{font-size:.86rem;font-weight:500}
   <div class="container">
     <div class="section-head">
       <span class="kicker rev">Recent flights</span>
-      <h2 id="portfolio-h" class="rev d1">Sample Portfolio &amp; Concept Work</h2>
+      <h2 id="portfolio-h" class="rev d1">Featured Portfolio &amp; Concept Work</h2>
       <p class="lead rev d2">
         Our first portfolio includes real sample content and concept work created to demonstrate SkyLuxe Media's visual direction. Concept work is used for branding, visual planning and cinematic storytelling, not to misrepresent real property features.
       </p>
@@ -953,6 +973,10 @@ footer p{font-size:.86rem;font-weight:500}
       </figure>
 
     </div>
+
+    <div class="portfolio-actions rev">
+      <a class="btn btn-ink" href="portfolio.html">View All Portfolio</a>
+    </div>
   </div>
 </section>
 
@@ -1035,7 +1059,7 @@ footer p{font-size:.86rem;font-weight:500}
     <a class="logo" href="#top" aria-label="SkyLuxe Media home"><img class="logo-img" src="assets/skyluxe-logo-nav.png" decoding="async" alt="SkyLuxe Media"><span class="logo-text">SkyLuxe Media</span></a>
     <p>© 2026 SkyLuxe Media · Property &amp; aerial media · Brisbane, Australia</p>
     <div class="flinks">
-      <a href="#services">Services</a><a href="#packages">Packages</a><a href="contact.html">Contact</a><a href="https://www.instagram.com/skyluxemediavisuals/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#services">Services</a><a href="#packages">Packages</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a><a href="https://www.instagram.com/skyluxemediavisuals/" target="_blank" rel="noopener">Instagram</a>
     </div>
   </div>
 </footer>
