@@ -641,16 +641,38 @@ footer p{font-size:.86rem;font-weight:500}
   }
 }
 
-/* ---------- mobile hero: show the full landscape video ---------- */
+/* ---------- mobile hero: full uncropped video on top, content below ---------- */
 @media(max-width:600px){
   .hero{
     background:#15171B;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
   }
 
   .hero-video{
+    position:relative;
+    inset:auto;
+    width:100%;
+    height:auto;
+    aspect-ratio:16/9;
     object-fit:contain;
     object-position:center center;
     background:#15171B;
+    margin-top:78px; /* clear the fixed nav */
+  }
+
+  /* video is no longer behind the text, so no scrim needed */
+  .hero-scrim{
+    display:none;
+  }
+
+  .hero-in{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:26px 0 44px;
   }
 }
 
