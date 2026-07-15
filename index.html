@@ -772,7 +772,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.ph:focus-visible{
       <li><a href="#services">Services</a></li>
       <li><a href="#packages">Packages</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#about-me">About</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -786,7 +786,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.ph:focus-visible{
 </nav>
 <div class="mmenu" id="mmenu">
   <a href="#services">Services</a><a href="#packages">Packages</a><a href="portfolio.html">Portfolio</a>
-  <a href="#gallery">Gallery</a><a href="#process">Process</a><a href="#about-me">About</a><a href="#faq">FAQ</a><a href="contact.html">Contact</a>
+  <a href="gallery.html">Gallery</a><a href="#process">Process</a><a href="#about-me">About</a><a href="#faq">FAQ</a><a href="contact.html">Contact</a>
 </div>
 
 <!-- ================= HERO ================= -->
@@ -1085,93 +1085,66 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.ph:focus-visible{
   </div>
 </section>
 
-<!-- ================= PHOTO GALLERY ================= -->
-<!--
-  HOW TO ADD YOUR PHOTOS:
-  1. Create a folder: assets/gallery/
-  2. Drop your images in and match the filenames below (or edit the src attributes).
-  3. Set each tile's data-cat to: aerial | ground | twilight (controls the filter chips).
-  4. Add class "wide" (2 columns) or "tall" (2 rows) to feature a shot — landscape shots suit "wide",
-     vertical shots suit "tall".
-  5. Any tile whose image file is missing hides itself automatically, so the section never looks broken.
-  6. Optional: point data-full at a higher-resolution version for the lightbox; otherwise src is used.
--->
+<!-- ================= FEATURED PHOTO GALLERY ================= -->
 <section class="pad" id="gallery" aria-labelledby="gallery-h">
   <div class="container">
     <div class="section-head">
-      <span class="kicker rev">Photo gallery</span>
-      <h2 id="gallery-h" class="rev d1">Stills from the sky and the street</h2>
-      <p class="lead rev d2">A selection of aerial, ground-level and twilight photography. Tap any image to view it full screen.</p>
-    </div>
-
-    <div class="gal-filters rev" role="group" aria-label="Filter gallery by category">
-      <button class="chip active" data-filter="all" aria-pressed="true">All</button>
-      <button class="chip" data-filter="aerial" aria-pressed="false">Aerial</button>
-      <button class="chip" data-filter="ground" aria-pressed="false">Ground level</button>
-      <button class="chip" data-filter="twilight" aria-pressed="false">Twilight</button>
+      <span class="kicker rev">Featured photography</span>
+      <h2 id="gallery-h" class="rev d1">Selected work from the sky and the street</h2>
+      <p class="lead rev d2">A small selection from our property, construction, short-stay, commercial and landscape galleries.</p>
     </div>
 
     <div class="gal-grid" id="galGrid">
 
-      <figure class="ph wide rev" data-cat="aerial" tabindex="0" role="button" aria-label="View photo: Riverside estate from above">
-        <img src="assets/gallery/aerial-01.jpg" alt="Aerial drone photo of a riverside estate" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
+      <figure class="ph wide rev" tabindex="0" role="button" aria-label="View photo: Luxury home aerial">
+        <img src="assets/gallery/luxury-01.jpg" alt="Aerial drone photograph of a luxury home" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
         <div class="ov"></div>
         <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg></span>
-        <figcaption class="cap"><small>Aerial</small><span>Riverside estate — from 80 metres</span></figcaption>
+        <figcaption class="cap"><small>Luxury homes</small><span>Property from a higher perspective</span></figcaption>
       </figure>
 
-      <figure class="ph tall rev d1" data-cat="ground" tabindex="0" role="button" aria-label="View photo: Facade detail at golden hour">
-        <img src="assets/gallery/ground-01.jpg" alt="Ground-level photo of a home facade at golden hour" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
+      <figure class="ph tall rev d1" tabindex="0" role="button" aria-label="View photo: Construction progress">
+        <img src="assets/gallery/construction-01.jpg" alt="Aerial construction progress photograph" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
         <div class="ov"></div>
         <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg></span>
-        <figcaption class="cap"><small>Ground level</small><span>Facade detail — golden hour</span></figcaption>
+        <figcaption class="cap"><small>Construction progress</small><span>Build progress from above</span></figcaption>
       </figure>
 
-      <figure class="ph rev d2" data-cat="aerial" tabindex="0" role="button" aria-label="View photo: Suburb sweep">
-        <img src="assets/gallery/aerial-02.jpg" alt="Aerial drone photo sweeping across a Brisbane suburb" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
+      <figure class="ph rev d2" tabindex="0" role="button" aria-label="View photo: Airbnb and holiday rental">
+        <img src="assets/gallery/airbnb-01.jpg" alt="Aerial photograph of an Airbnb or holiday rental" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
         <div class="ov"></div>
         <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg></span>
-        <figcaption class="cap"><small>Aerial</small><span>Suburb sweep — position &amp; scale</span></figcaption>
+        <figcaption class="cap"><small>Airbnb &amp; holiday rentals</small><span>Show the stay and its surroundings</span></figcaption>
       </figure>
 
-      <figure class="ph rev" data-cat="twilight" tabindex="0" role="button" aria-label="View photo: Twilight exterior">
-        <img src="assets/gallery/twilight-01.jpg" alt="Twilight photo of a property with interior lights on" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
+      <figure class="ph rev" tabindex="0" role="button" aria-label="View photo: Commercial property">
+        <img src="assets/gallery/business-01.jpg" alt="Drone photograph of a commercial or local business property" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
         <div class="ov"></div>
         <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg></span>
-        <figcaption class="cap"><small>Twilight</small><span>Lights on — dusk exterior</span></figcaption>
+        <figcaption class="cap"><small>Commercial &amp; local business</small><span>Premises presented professionally</span></figcaption>
       </figure>
 
-      <figure class="ph rev d1" data-cat="ground" tabindex="0" role="button" aria-label="View photo: Outdoor living space">
-        <img src="assets/gallery/ground-02.jpg" alt="Ground-level photo of an outdoor entertaining area" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
+      <figure class="ph rev d1" tabindex="0" role="button" aria-label="View photo: Drone landscape">
+        <img src="assets/gallery/landscape-01.jpg" alt="Cinematic aerial drone landscape photograph" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
         <div class="ov"></div>
         <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg></span>
-        <figcaption class="cap"><small>Ground level</small><span>Outdoor living — lifestyle appeal</span></figcaption>
+        <figcaption class="cap"><small>Drone landscapes</small><span>Coast, countryside and location</span></figcaption>
       </figure>
 
-      <figure class="ph wide rev d2" data-cat="twilight" tabindex="0" role="button" aria-label="View photo: Blue hour aerial">
-        <img src="assets/gallery/twilight-02.jpg" alt="Aerial twilight photo during blue hour" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
+      <figure class="ph wide rev d2" tabindex="0" role="button" aria-label="View photo: Twilight home exterior">
+        <img src="assets/gallery/luxury-02.jpg" alt="Twilight exterior photograph of a modern home" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
         <div class="ov"></div>
         <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg></span>
-        <figcaption class="cap"><small>Twilight</small><span>Blue hour — above the rooflines</span></figcaption>
-      </figure>
-
-      <figure class="ph rev" data-cat="aerial" tabindex="0" role="button" aria-label="View photo: Acreage boundary lines">
-        <img src="assets/gallery/aerial-03.jpg" alt="Aerial drone photo showing acreage and boundary lines" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
-        <div class="ov"></div>
-        <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg></span>
-        <figcaption class="cap"><small>Aerial</small><span>Acreage — room to breathe</span></figcaption>
-      </figure>
-
-      <figure class="ph rev d1" data-cat="aerial" tabindex="0" role="button" aria-label="View photo: Build progress from above">
-        <img src="assets/gallery/aerial-04.jpg" alt="Aerial drone photo of a construction site in progress" loading="lazy" decoding="async" onerror="this.closest('.ph').style.display='none'">
-        <div class="ov"></div>
-        <span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg></span>
-        <figcaption class="cap"><small>Aerial</small><span>Build progress — week by week</span></figcaption>
+        <figcaption class="cap"><small>Luxury homes</small><span>Twilight exterior and architectural detail</span></figcaption>
       </figure>
 
     </div>
 
-    <p class="gal-note rev">Every gallery is delivered in full resolution, formatted for listings, socials and print.</p>
+    <p class="gal-note rev">Start with your strongest images. Missing image files hide automatically, so the page never displays broken tiles.</p>
+
+    <div class="portfolio-actions rev">
+      <a class="btn btn-bronze" href="gallery.html">View Full Photo Gallery</a>
+    </div>
   </div>
 </section>
 
@@ -1254,7 +1227,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.ph:focus-visible{
     <a class="logo" href="#top" aria-label="SkyLuxe Media home"><img class="logo-img" src="assets/skyluxe-logo-nav.png" decoding="async" alt="SkyLuxe Media"><span class="logo-text">SkyLuxe Media</span></a>
     <p>© 2026 SkyLuxe Media · Property &amp; aerial media · Brisbane, Australia</p>
     <div class="flinks">
-      <a href="#services">Services</a><a href="#packages">Packages</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a><a href="https://www.instagram.com/skyluxemediavisuals/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#services">Services</a><a href="#packages">Packages</a><a href="portfolio.html">Portfolio</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a><a href="https://www.instagram.com/skyluxemediavisuals/" target="_blank" rel="noopener">Instagram</a>
     </div>
   </div>
 </footer>
