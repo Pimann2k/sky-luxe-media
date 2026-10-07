@@ -1329,6 +1329,42 @@ footer{padding:3.4rem 0;background:#070B11}
   }
 }
 
+
+/* CTA cleanup — services should inform, not keep asking for a quote */
+.premium-grid .svc{
+  grid-template-columns:64px minmax(230px,.78fr) minmax(320px,1.22fr) 44px;
+}
+.premium-grid .svc::after{
+  grid-column:4;
+  align-self:center;
+  margin:0;
+}
+@media(max-width:980px){
+  .premium-grid .svc{
+    grid-template-columns:56px minmax(0,.8fr) minmax(0,1.2fr) 36px;
+  }
+  .premium-grid .svc::after{
+    grid-column:4;
+    grid-row:1;
+  }
+  .premium-grid .svc p{
+    grid-column:2 / 5;
+    grid-row:2;
+  }
+}
+@media(max-width:620px){
+  .premium-grid .svc{
+    grid-template-columns:46px 1fr auto;
+  }
+  .premium-grid .svc::after{
+    grid-column:3;
+  }
+  .premium-grid .svc p{
+    grid-column:2 / 4;
+    grid-row:2;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1349,7 +1385,7 @@ footer{padding:3.4rem 0;background:#070B11}
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-cta">
-      <a class="btn btn-bronze" href="contact.html#quote">Request a Quote</a>
+      <a class="btn btn-bronze" href="contact.html">Contact</a>
       <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -1376,12 +1412,13 @@ footer{padding:3.4rem 0;background:#070B11}
 
   <div class="hero-in">
     <div class="hero-copy">
+      <span class="hero-eyebrow">Brisbane · South East Queensland</span>
       <h1>Photography, Film <span>&amp; Visual Media</span> in Brisbane</h1>
       <p>Polished photography, event coverage, short-form films and visual content for properties, projects, people and local businesses across Brisbane and South East Queensland.</p>
 
       <div class="hero-ctas">
-        <a class="btn btn-bronze" href="contact.html#quote">Request a Quote</a>
-        <a class="btn btn-line" href="portfolio.html">View Portfolio</a>
+        <a class="btn btn-bronze" href="contact.html#quote">Start a Project</a>
+        <a class="btn btn-line" href="portfolio.html">View Our Work</a>
       </div>
 
       <div class="hero-trust" aria-label="SkyLuxe Media service highlights">
@@ -1427,42 +1464,36 @@ footer{padding:3.4rem 0;background:#070B11}
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h3l1.5-2h7L17 7h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/><circle cx="12" cy="13" r="4"/></svg></div>
         <h3>Event Photography</h3>
         <p>Natural, polished coverage for celebrations, engagements, corporate functions, community events and venue-based occasions.</p>
-        <a class="more" href="contact.html#quote">Request a Quote</a>
       </article>
 
       <article class="svc rev d1" data-num="02">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg></div>
         <h3>Property &amp; Interior Photography</h3>
         <p>Clean, editorial imagery for homes, short-stay properties, developments and spaces — focused on light, composition and the details that make a place distinctive.</p>
-        <a class="more" href="contact.html#quote">Request a Quote</a>
       </article>
 
       <article class="svc rev d2" data-num="03">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 17l6-6 4 4 6-7"/><path d="M14 8h6v6"/></svg></div>
         <h3>Business &amp; Brand Content</h3>
         <p>Photography and visual content for venues, trades and local businesses — designed for websites, social media, campaigns and everyday brand use.</p>
-        <a class="more" href="contact.html#quote">Request a Quote</a>
       </article>
 
       <article class="svc rev d3" data-num="04">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg></div>
         <h3>Short Films &amp; Reels</h3>
         <p>Short-form video for launches, events, properties and businesses — combining thoughtful movement, detail and pacing into content made to be watched.</p>
-        <a class="more" href="contact.html#quote">Request a Quote</a>
       </article>
 
       <article class="svc rev" data-num="05">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18"/><path d="M6 21V8l6-4 6 4v13"/><path d="M9 21v-4h6v4"/></svg></div>
         <h3>Project &amp; Progress Content</h3>
         <p>Progress photography and completion content for builders, roofers, solar installers, landscapers and renovation projects — for records, clients and marketing.</p>
-        <a class="more" href="contact.html#quote">Request a Quote</a>
       </article>
 
       <article class="svc rev d1" data-num="06">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l2.6 5.3L20 8l-4 3.9.9 5.6L12 15l-4.9 2.5.9-5.6L4 8l5.4-.7z"/></svg></div>
         <h3>Aerial Photography</h3>
         <p>Aerial imagery is available when it adds genuine value — for property context, project scale, installations, land and location storytelling.</p>
-        <a class="more" href="contact.html#quote">Request a Quote</a>
       </article>
     </div>
   </div>
@@ -1476,7 +1507,7 @@ footer{padding:3.4rem 0;background:#070B11}
     <span class="kicker rev">Visual storytelling</span>
     <h2 class="rev d1">The best work starts with what deserves attention.</h2>
     <p class="rev d2">People, spaces, texture, movement and atmosphere all tell part of the story. The camera choice comes second — the subject always comes first.</p>
-    <a class="btn btn-line rev d3" href="contact.html#quote">Request a Quote</a>
+    <a class="btn btn-line rev d3" href="portfolio.html">View Our Work</a>
   </div>
 </section>
 
@@ -1516,7 +1547,7 @@ footer{padding:3.4rem 0;background:#070B11}
     <span class="kicker rev">Made for attention</span>
     <h2 class="rev d1">Short reels that make people stop scrolling.</h2>
     <p class="rev d2">15–30 seconds of drone and ground-level footage, edited with music and text overlays — ready to post on Instagram, Facebook or your listing the same week.</p>
-    <a class="btn btn-line rev d3" href="contact.html#quote">Request a Quote</a>
+    <a class="btn btn-line rev d3" href="gallery.html">Explore Gallery</a>
   </div>
 </section>
 
@@ -1548,7 +1579,7 @@ footer{padding:3.4rem 0;background:#070B11}
         <span class="play-hint">Hover preview · Click for sound</span>
 
         <figcaption class="meta">
-          <small>Concept work with creative edit</small>
+          <small>Real footage with creative edit</small>
           <h3>Luxury Property Showcase Demo</h3>
         </figcaption>
       </figure>
@@ -1764,7 +1795,7 @@ footer{padding:3.4rem 0;background:#070B11}
       <h2>Let’s make it look the part.</h2>
       <p>Event, property, project or business — tell us what you need and we’ll shape the photography or film around it.</p>
     </div>
-    <a class="btn btn-bronze" href="contact.html#quote">Request a Quote</a>
+    <a class="btn btn-bronze" href="contact.html#quote">Tell Us About It</a>
   </div>
 </section>
 
