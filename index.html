@@ -946,7 +946,7 @@ h3{font-size:1.6rem}
 }
 .premium-grid .svc p{font-size:.92rem;line-height:1.7}
 .premium-grid .more{margin-top:1.5rem;border:0;letter-spacing:.12em}
-.premium-grid .more::after{content:" ↗"}
+
 
 .band{min-height:72vh}
 .band-scrim{
@@ -1080,6 +1080,255 @@ footer{padding:3.4rem 0;background:#070B11}
   .hero-ctas .btn{width:100%}
 }
 
+
+/* =========================================================
+   SERVICES REFINEMENT — editorial / agency layout
+   ========================================================= */
+.premium-services{
+  background:#F5F2EC;
+}
+.premium-services .premium-head{
+  display:grid;
+  grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  gap:5rem;
+  align-items:end;
+  max-width:none;
+  margin-bottom:3.1rem;
+}
+.premium-services .premium-head .kicker{
+  grid-column:1/-1;
+  margin-bottom:-3.8rem;
+}
+.premium-services .premium-head h2{
+  max-width:10ch;
+}
+.premium-services .premium-head .lead{
+  max-width:56ch;
+  justify-self:end;
+  padding-bottom:.35rem;
+}
+
+/* Replace oversized cards with a refined service list */
+.premium-grid{
+  display:block;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  overflow:visible;
+}
+.premium-grid .svc{
+  position:relative;
+  display:grid;
+  grid-template-columns:64px minmax(210px,.72fr) minmax(300px,1.18fr) auto;
+  gap:1.55rem;
+  align-items:center;
+  min-height:0;
+  padding:1.55rem .2rem;
+  background:transparent;
+  border:0;
+  border-top:1px solid rgba(11,16,24,.14);
+  border-radius:0;
+  box-shadow:none;
+  overflow:visible;
+  transition:background .25s ease,padding .25s ease;
+}
+.premium-grid .svc:last-child{
+  border-bottom:1px solid rgba(11,16,24,.14);
+}
+.premium-grid .svc:hover{
+  transform:none;
+  box-shadow:none;
+  background:rgba(255,255,255,.54);
+  padding-left:1rem;
+  padding-right:1rem;
+}
+.premium-grid .svc::after{
+  content:attr(data-num);
+  position:static;
+  grid-column:4;
+  grid-row:1;
+  justify-self:end;
+  align-self:start;
+  margin-top:.25rem;
+  font-family:var(--fb);
+  font-size:.6rem;
+  line-height:1;
+  letter-spacing:.18em;
+  font-weight:700;
+  color:rgba(11,16,24,.28);
+}
+.premium-grid .svc .ic{
+  grid-column:1;
+  grid-row:1;
+  width:48px;
+  height:48px;
+  margin:0;
+  border-radius:50%;
+  background:transparent;
+  border:1px solid rgba(176,138,80,.42);
+  color:var(--bronze2);
+}
+.premium-grid .svc .ic svg{
+  width:21px;
+  height:21px;
+}
+.premium-grid .svc h3{
+  grid-column:2;
+  grid-row:1;
+  margin:0;
+  font-size:clamp(1.7rem,2.4vw,2.25rem);
+  line-height:1;
+  letter-spacing:-.025em;
+}
+.premium-grid .svc p{
+  grid-column:3;
+  grid-row:1;
+  margin:0;
+  max-width:58ch;
+  color:#595E66;
+  font-size:.9rem;
+  line-height:1.72;
+}
+.premium-grid .svc .more{
+  grid-column:4;
+  grid-row:1;
+  align-self:end;
+  justify-self:end;
+  display:inline-flex;
+  align-items:center;
+  gap:.65rem;
+  margin:0 0 .05rem 0;
+  padding:0;
+  border:0;
+  color:var(--bronze2);
+  font-size:.64rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  white-space:nowrap;
+}
+.premium-grid .svc .more::after{
+  content:"";
+  width:8px;
+  height:8px;
+  border-top:1.4px solid currentColor;
+  border-right:1.4px solid currentColor;
+  transform:rotate(45deg);
+  transition:transform .2s ease;
+}
+.premium-grid .svc .more:hover::after{
+  transform:translateX(3px) rotate(45deg);
+}
+
+@media(max-width:980px){
+  .premium-services .premium-head{
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+  .premium-services .premium-head .kicker{
+    grid-column:auto;
+    margin-bottom:.25rem;
+  }
+  .premium-services .premium-head h2{
+    max-width:12ch;
+  }
+  .premium-services .premium-head .lead{
+    justify-self:start;
+    max-width:62ch;
+  }
+
+  .premium-grid .svc{
+    grid-template-columns:56px minmax(0,.8fr) minmax(0,1.2fr);
+  }
+  .premium-grid .svc::after{
+    grid-column:3;
+    justify-self:end;
+  }
+  .premium-grid .svc .ic{grid-column:1}
+  .premium-grid .svc h3{grid-column:2}
+  .premium-grid .svc p{
+    grid-column:2 / 4;
+    grid-row:2;
+    max-width:65ch;
+  }
+  .premium-grid .svc .more{
+    grid-column:2 / 4;
+    grid-row:3;
+    justify-self:start;
+    margin-top:.15rem;
+  }
+}
+
+@media(max-width:620px){
+  .premium-services{
+    padding-top:78px;
+    padding-bottom:80px;
+  }
+  .premium-services .premium-head{
+    margin-bottom:2rem;
+  }
+  .premium-services .premium-head h2{
+    font-size:2.55rem;
+    line-height:.98;
+    max-width:11ch;
+  }
+  .premium-services .premium-head .lead{
+    font-size:.93rem;
+    line-height:1.7;
+  }
+
+  .premium-grid .svc{
+    display:grid;
+    grid-template-columns:46px 1fr auto;
+    gap:.8rem .9rem;
+    padding:1.35rem 0;
+    min-height:0;
+  }
+  .premium-grid .svc:hover{
+    background:transparent;
+    padding-left:0;
+    padding-right:0;
+  }
+  .premium-grid .svc .ic{
+    grid-column:1;
+    grid-row:1;
+    width:42px;
+    height:42px;
+  }
+  .premium-grid .svc .ic svg{
+    width:19px;
+    height:19px;
+  }
+  .premium-grid .svc h3{
+    grid-column:2;
+    grid-row:1;
+    align-self:center;
+    font-size:1.75rem;
+    line-height:1.02;
+    max-width:12ch;
+  }
+  .premium-grid .svc::after{
+    grid-column:3;
+    grid-row:1;
+    align-self:center;
+    margin:0;
+    font-size:.56rem;
+    color:rgba(11,16,24,.25);
+  }
+  .premium-grid .svc p{
+    grid-column:2 / 4;
+    grid-row:2;
+    font-size:.86rem;
+    line-height:1.62;
+    padding-right:.2rem;
+  }
+  .premium-grid .svc .more{
+    grid-column:2 / 4;
+    grid-row:3;
+    font-size:.60rem;
+    margin-top:.2rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1127,6 +1376,7 @@ footer{padding:3.4rem 0;background:#070B11}
 
   <div class="hero-in">
     <div class="hero-copy">
+      <span class="hero-eyebrow">Brisbane · South East Queensland</span>
       <h1>Property, Event <span>&amp; Aerial Media</span> in Brisbane</h1>
       <p>Premium drone photography, property imagery, event photography and cinematic short reels — created to make places, projects and moments feel worth stopping for.</p>
 
