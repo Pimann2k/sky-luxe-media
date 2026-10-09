@@ -309,6 +309,12 @@ footer{background:#060b11;color:rgba(255,255,255,.58);padding:3rem 0;border-top:
   .reveal{opacity:1;transform:none}
 }
 
+
+/* Category-specific background while a category image is unavailable. */
+.capture-panel[data-tone="moment"]{background:radial-gradient(circle at 75% 30%,#8b615c,#29242c 65%,#0a1018)}
+.capture-panel[data-tone="place"]{background:linear-gradient(135deg,#667467,#172e30 55%,#09121a)}
+.capture-panel[data-tone="project"]{background:linear-gradient(135deg,#8c7355,#3e4b4e 55%,#0a1018)}
+.capture-panel[data-tone="brand"]{background:linear-gradient(135deg,#826b70,#3d3449 55%,#0a1018)}
 </style>
 <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -562,51 +568,44 @@ else{
 }
 
 var captureData={
-  moment:{
-    label:'A Moment',
-    title:'Keep the atmosphere, not just the evidence.',
-    text:'Event photography and short-form film focused on people, reactions, details and the energy of the room.',
-    points:['Events','Engagements','Functions','Highlights'],
-    image:'assets/gallery/event-01.jpg'
-  },
-  place:{
-    label:'A Place',
-    title:'Show how the space actually feels.',
-    text:'Photography for homes, short-stay properties, interiors and venues with attention to light, composition and context.',
-    points:['Property','Interiors','Airbnb','Venues'],
-    image:'assets/gallery/luxury-01.png'
-  },
-  project:{
-    label:'A Project',
-    title:'Make the work visible from start to finish.',
-    text:'Progress and completion content for builders, roofers, solar installers, landscapers and renovation projects.',
-    points:['Progress','Completion','Documentation','Marketing'],
-    image:'assets/gallery/construction-01.png'
-  },
-  brand:{
-    label:'A Brand',
-    title:'Give people a reason to stop scrolling.',
-    text:'Photography and short-form content for local businesses, venues and trades — built for websites, social media and campaigns.',
-    points:['Brand','Social','Reels','Campaigns'],
-    image:'assets/gallery/business-01.png'
-  }
+  moment:{label:'A Moment',title:'Keep the atmosphere, not just the evidence.',text:'Event photography and short-form film focused on people, reactions, details and the energy of the room.',points:['Events','Engagements','Functions','Highlights'],stem:'assets/gallery/event-01',tone:'moment'},
+  place:{label:'A Place',title:'Show how the space actually feels.',text:'Photography for homes, short-stay properties, interiors and venues with attention to light, composition and context.',points:['Property','Interiors','Airbnb','Venues'],stem:'assets/gallery/luxury-01',tone:'place'},
+  project:{label:'A Project',title:'Make the work visible from start to finish.',text:'Progress and completion content for builders, roofers, solar installers, landscapers and renovation projects.',points:['Progress','Completion','Documentation','Marketing'],stem:'assets/gallery/construction-01',tone:'project'},
+  brand:{label:'A Brand',title:'Give people a reason to stop scrolling.',text:'Photography and short-form content for local businesses, venues and trades — built for websites, social media and campaigns.',points:['Brand','Social','Reels','Campaigns'],stem:'assets/gallery/business-01',tone:'brand'}
 };
-
 var tabs=document.querySelectorAll('.capture-tab');
 var capImg=document.getElementById('captureImage'),capLabel=document.getElementById('captureLabel'),
     capTitle=document.getElementById('captureTitle'),capText=document.getElementById('captureText'),
     capPoints=document.getElementById('capturePoints');
+var captureExts=['.jpg','.jpeg','.JPEG','.png','.PNG','.webp','.WEBP'];
+var captureToken=0;
 function renderCapture(key){
-  var d=captureData[key]; if(!d) return;
-  tabs.forEach(function(t){t.classList.toggle('active',t.dataset.capture===key);t.setAttribute('aria-pressed',t.dataset.capture===key?'true':'false');});
-  if(capImg){capImg.style.opacity='0';setTimeout(function(){capImg.src=d.image;capImg.alt=d.label+' — SkyLuxe Media visual example';capImg.style.opacity='1';},120);}
+  var d=captureData[key]; if(!d)return;
+  var token=++captureToken;
+  tabs.forEach(function(t){var active=t.dataset.capture===key;t.classList.toggle('active',active);t.setAttribute('aria-pressed',String(active));});
+  if(capImg){
+    var panel=capImg.closest('.capture-panel');
+    panel.dataset.tone=d.tone;
+    capImg.style.opacity='0';
+    capImg.alt=d.label+' — SkyLuxe Media';
+    var i=0;
+    function tryNext(){
+      if(token!==captureToken)return;
+      if(i>=captureExts.length){capImg.removeAttribute('src');capImg.style.opacity='0';return;}
+      var candidate=new Image();
+      candidate.onload=function(){if(token!==captureToken)return;capImg.src=candidate.src;capImg.style.opacity='1';};
+      candidate.onerror=tryNext;
+      candidate.src=d.stem+captureExts[i++];
+    }
+    tryNext();
+  }
   if(capLabel)capLabel.textContent=d.label;
   if(capTitle)capTitle.textContent=d.title;
   if(capText)capText.textContent=d.text;
   if(capPoints)capPoints.innerHTML=d.points.map(function(p){return'<span>'+p+'</span>';}).join('');
 }
 tabs.forEach(function(t){t.addEventListener('click',function(){renderCapture(t.dataset.capture);});});
-if(capImg)capImg.addEventListener('error',function(){this.onerror=null;this.src='assets/hero%20poster.png';});
+renderCapture('moment');
 
 var brief={type:'moment',format:'photography'};
 function setChoice(group,value){
