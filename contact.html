@@ -6,113 +6,671 @@
 <link rel="icon" type="image/png" href="assets/skyluxe-icon.png">
 <link rel="apple-touch-icon" href="assets/skyluxe-icon.png">
 <link rel="preload" as="image" href="assets/skyluxe-logo-nav.png">
-<title>Start a Project | SkyLuxe Media Brisbane</title>
-<meta name="description" content="Start a project with SkyLuxe Media for event photography, property photography, short-form film, business content, project content or aerial photography across Brisbane and South East Queensland.">
+
+<title>Request a Quote | Photography & Visual Media Brisbane | SkyLuxe Media</title>
+<meta name="description" content="Request a tailored quote from SkyLuxe Media for event photography, property photography, short-form film, project content, business content and aerial photography across Brisbane and South East Queensland.">
+<meta property="og:title" content="Request a Quote | SkyLuxe Media">
+<meta property="og:description" content="Tell SkyLuxe Media what you need and receive a tailored quote for property, event and aerial media across Brisbane and South East Queensland.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_AU">
-<meta name="theme-color" content="#08101b">
+<meta name="theme-color" content="#0A1019">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+
+<style>
+:root{
+  --paper:#F3F0E9;
+  --paper2:#EAE5DB;
+  --ink:#0B1018;
+  --ink2:#51555D;
+  --navy:#0A1019;
+  --navy2:#111925;
+  --bronze:#B08A50;
+  --bronze2:#8C6837;
+  --champagne:#DFC89E;
+  --white:#FFFFFF;
+  --line:rgba(11,16,24,.12);
+  --fd:'Cormorant Garamond',serif;
+  --fb:'Manrope',sans-serif;
+  --shadow:0 24px 70px rgba(8,13,21,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--fb);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+button,input,select,textarea{font:inherit}
+::selection{background:rgba(176,138,80,.28)}
+.container{width:min(1240px,91%);margin:0 auto}
+h1,h2,h3{font-family:var(--fd);font-weight:500;letter-spacing:-.025em}
+h1{font-size:clamp(3.7rem,7.5vw,7.4rem);line-height:.86}
+h2{font-size:clamp(2.55rem,4.8vw,4.25rem);line-height:.98}
+h3{font-size:1.55rem;line-height:1.1}
+.kicker{
+  display:inline-flex;align-items:center;gap:.8rem;
+  color:var(--bronze2);font-size:.66rem;font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;
+}
+.kicker::before{content:"";width:44px;height:1px;background:var(--bronze)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:48px;padding:.85rem 1.45rem;border-radius:999px;
+  border:0;text-decoration:none;cursor:pointer;
+  text-transform:uppercase;letter-spacing:.08em;font-size:.76rem;font-weight:700;
+  transition:.25s ease;
+}
+.btn-bronze{
+  color:#fff;background:linear-gradient(135deg,#C39A5D,#9E753E);
+  box-shadow:0 12px 34px rgba(141,103,54,.24);
+}
+.btn-bronze:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(141,103,54,.32)}
+.btn-line{color:#fff;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.04)}
+.btn-line:hover{background:rgba(255,255,255,.10)}
+
+/* nav */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(7,11,17,.80);
+  backdrop-filter:blur(20px) saturate(125%);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.nav-in{
+  width:min(1240px,91%);height:82px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;
+}
+.logo{display:flex;align-items:center;text-decoration:none}
+.logo img{width:218px;max-height:50px;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:1.55rem;list-style:none}
+.nav-links a{
+  color:rgba(255,255,255,.82);text-decoration:none;
+  font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  position:relative;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:-7px;height:1px;width:0;
+  background:var(--champagne);transition:.25s ease;
+}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:.9rem}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+.burger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0}
+.mobile-menu{
+  display:none;position:fixed;top:82px;left:0;right:0;z-index:49;
+  padding:1.2rem 4.5% 1.5rem;background:rgba(243,240,233,.98);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(18px);
+}
+.mobile-menu.open{display:block}
+.mobile-menu a{
+  display:block;padding:.9rem 0;border-bottom:1px solid var(--line);
+  color:var(--ink);text-decoration:none;font-family:var(--fd);font-size:1.25rem;
+}
+
+/* hero */
+.contact-hero{
+  min-height:72vh;
+  display:flex;align-items:flex-end;
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 77% 25%,rgba(176,138,80,.22),transparent 28%),
+    radial-gradient(circle at 68% 65%,rgba(223,200,158,.08),transparent 26%),
+    linear-gradient(120deg,#070B11 0%,#0B121D 55%,#151C27 100%);
+  color:#fff;
+}
+.contact-hero::before{
+  content:"";position:absolute;inset:0;opacity:.25;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:54px 54px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.85),transparent 82%);
+}
+.contact-hero::after{
+  content:"";position:absolute;width:520px;height:520px;right:-140px;bottom:-180px;
+  border:1px solid rgba(223,200,158,.12);border-radius:50%;
+  box-shadow:0 0 0 70px rgba(223,200,158,.025),0 0 0 140px rgba(223,200,158,.018);
+}
+.hero-in{
+  position:relative;z-index:2;
+  width:min(1240px,91%);margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);
+  gap:7vw;align-items:end;padding:160px 0 78px;
+}
+.hero-copy .eyebrow{
+  display:block;color:var(--champagne);font-size:.66rem;font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;margin-bottom:1.4rem;
+}
+.hero-copy h1{max-width:8.6ch}
+.hero-copy h1 span{color:var(--champagne)}
+.hero-copy p{
+  max-width:59ch;margin-top:1.5rem;
+  color:rgba(255,255,255,.68);font-size:1rem;line-height:1.85;
+}
+.hero-aside{
+  padding:1.5rem 0 1.5rem 1.7rem;border-left:1px solid rgba(223,200,158,.45);
+}
+.hero-aside small{
+  color:var(--champagne);font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+}
+.hero-aside strong{
+  display:block;margin:.7rem 0 1rem;font-family:var(--fd);font-size:2rem;font-weight:500;line-height:1.05;
+}
+.hero-aside p{color:rgba(255,255,255,.55);font-size:.85rem;line-height:1.7}
+
+/* quote section */
+.quote-section{padding:100px 0 120px}
+.quote-top{
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem;
+}
+.quote-top p{color:var(--ink2);max-width:56ch;justify-self:end}
+.quote-shell{
+  display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.55fr);
+  gap:1.1rem;align-items:start;
+}
+.form-card{
+  background:#fff;border:1px solid rgba(11,16,24,.10);border-radius:24px;
+  padding:2rem;box-shadow:var(--shadow);
+}
+.form-intro{
+  display:flex;justify-content:space-between;gap:2rem;align-items:end;
+  padding-bottom:1.5rem;margin-bottom:1.6rem;border-bottom:1px solid var(--line);
+}
+.form-intro p{font-size:.86rem;color:var(--ink2);max-width:46ch}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field.full{grid-column:1/-1}
+.field label{
+  display:flex;align-items:center;gap:.35rem;margin-bottom:.45rem;
+  font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#62666E;
+}
+.req{color:var(--bronze2)}
+.field input,.field select,.field textarea{
+  width:100%;border:1px solid rgba(11,16,24,.15);border-radius:13px;
+  background:#FBFAF7;color:var(--ink);
+  padding:.92rem 1rem;outline:none;transition:.2s ease;
+}
+.field select{
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230B1018' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 1rem center;
+  padding-right:2.8rem;
+}
+.field textarea{min-height:150px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:rgba(176,138,80,.85);
+  box-shadow:0 0 0 4px rgba(176,138,80,.10);
+  background:#fff;
+}
+.field input::placeholder,.field textarea::placeholder{color:#95999F}
+.service-hint{
+  grid-column:1/-1;
+  background:#F3EFE6;border:1px solid rgba(176,138,80,.20);border-radius:14px;
+  padding:.9rem 1rem;color:#5C554A;font-size:.83rem;line-height:1.6;
+}
+.submit-row{
+  grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding-top:.4rem;
+}
+.submit-row .btn{min-width:190px}
+.form-status{font-size:.82rem;color:var(--ink2);line-height:1.5}
+.form-status.success{color:#24633A}
+.form-status.error{color:#8A2D2D}
+.form-fineprint{
+  grid-column:1/-1;font-size:.72rem;color:#81858B;line-height:1.6;
+  padding-top:.3rem;
+}
+
+/* side rail */
+.side-stack{display:grid;gap:1rem}
+.side-card{
+  border-radius:24px;padding:1.7rem;
+  background:var(--navy);color:#fff;box-shadow:var(--shadow);
+}
+.side-card.light{background:#EAE4D9;color:var(--ink);box-shadow:none;border:1px solid rgba(11,16,24,.08)}
+.side-kicker{
+  display:block;font-size:.6rem;font-weight:700;letter-spacing:.20em;
+  text-transform:uppercase;color:var(--champagne);margin-bottom:1rem;
+}
+.side-card.light .side-kicker{color:var(--bronze2)}
+.contact-row{padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.contact-row:first-of-type{padding-top:.3rem}
+.contact-row:last-child{border-bottom:0;padding-bottom:.1rem}
+.contact-row small{display:block;color:rgba(255,255,255,.48);font-size:.61rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.2rem}
+.contact-row a,.contact-row span{color:#fff;text-decoration:none;font-size:.93rem;font-weight:600}
+.contact-row a:hover{color:var(--champagne)}
+.need-list{list-style:none;margin-top:.35rem}
+.need-list li{
+  display:grid;grid-template-columns:28px 1fr;gap:.65rem;padding:.7rem 0;
+  border-bottom:1px solid rgba(11,16,24,.09);font-size:.84rem;color:#4C5158;
+}
+.need-list li:last-child{border-bottom:0}
+.need-list b{font-family:var(--fd);font-size:1.15rem;font-weight:600;color:var(--bronze2)}
+.drone-note{
+  margin-top:1.15rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.55);font-size:.76rem;line-height:1.65;
+}
+
+/* simple process */
+.after-quote{padding:100px 0;background:#0B111A;color:#fff}
+.after-head{max-width:680px;margin-bottom:3rem}
+.after-head .kicker{color:var(--champagne)}
+.after-head h2{margin-top:.9rem}
+.after-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.10);border-radius:22px;overflow:hidden}
+.after-item{padding:2rem;background:rgba(255,255,255,.025);min-height:210px}
+.after-item span{display:block;color:var(--champagne);font-size:.6rem;letter-spacing:.18em;font-weight:700;margin-bottom:2rem}
+.after-item h3{font-size:1.7rem;margin-bottom:.6rem}
+.after-item p{color:rgba(255,255,255,.54);font-size:.85rem;line-height:1.7}
+
+/* footer */
+footer{background:#070B11;color:rgba(255,255,255,.60);padding:3rem 0;border-top:1px solid rgba(255,255,255,.06)}
+.footer-in{width:min(1240px,91%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.footer-in img{width:195px;max-height:44px;object-fit:contain}
+.footer-in p{font-size:.78rem}
+.footer-links{display:flex;gap:1.35rem;flex-wrap:wrap}
+.footer-links a{color:rgba(255,255,255,.68);text-decoration:none;font-size:.75rem;font-weight:600}
+.footer-links a:hover{color:var(--champagne)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+@media(max-width:960px){
+  .nav-links,.nav-actions .btn{display:none}
+  .burger{display:block}
+  .hero-in{grid-template-columns:1fr;gap:2rem}
+  .hero-aside{max-width:560px}
+  .quote-top{grid-template-columns:1fr;gap:1rem}
+  .quote-top p{justify-self:start}
+  .quote-shell{grid-template-columns:1fr}
+  .side-stack{grid-template-columns:1fr 1fr}
+  .after-grid{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .nav-in{height:68px}
+  .logo img{width:170px}
+  .mobile-menu{top:68px}
+  .contact-hero{min-height:auto}
+  .hero-in{padding:125px 0 62px}
+  .hero-aside{display:none}
+  h1{font-size:clamp(3.15rem,15vw,4.8rem)}
+  .quote-section{padding:76px 0 90px}
+  .form-card{padding:1.2rem;border-radius:18px}
+  .form-intro{display:block}
+  .form-intro p{margin-top:.7rem}
+  .form-grid{grid-template-columns:1fr}
+  .field.full,.service-hint,.submit-row,.form-fineprint{grid-column:1}
+  .submit-row{display:block}
+  .submit-row .btn{width:100%;margin-bottom:.8rem}
+  .side-stack{grid-template-columns:1fr}
+  .after-quote{padding:76px 0}
+  .footer-in{align-items:flex-start;flex-direction:column}
+}
+</style>
 </head>
 
 <body>
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a class="logo" href="index.html" aria-label="SkyLuxe Media home">
+      <img src="assets/skyluxe-logo-nav.png" alt="SkyLuxe Media">
+    </a>
 
-<nav class="nav">
-  <div class="wrap nav-in">
-    <a class="brand" href="index.html" aria-label="SkyLuxe Media home"><img src="assets/skyluxe-logo-nav.png" alt="SkyLuxe Media"></a>
     <ul class="nav-links">
-      <li><a href="index.html#capture">What We Create</a></li>
-      <li><a href="portfolio.html">Work</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html#process">Process</a></li>
+      <li><a href="index.html#about-me">About</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
     </ul>
-    <div class="nav-end">
-      <a class="nav-contact" href="contact.html#project-form">Start a Project</a>
-      <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+
+    <div class="nav-actions">
+      <a class="btn btn-bronze" href="#quote">Request a Quote</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
-<div class="mobile-menu">
-  <a href="index.html#capture">What We Create</a>
-  <a href="portfolio.html">Work</a>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#services">Services</a>
+  <a href="portfolio.html">Portfolio</a>
   <a href="gallery.html">Gallery</a>
-  <a href="index.html#about">About</a>
-  <a href="contact.html#project-form">Start a Project</a>
+  <a href="index.html#process">Process</a>
+  <a href="index.html#about-me">About</a>
+  <a href="#quote">Request a Quote</a>
 </div>
 
-<header class="page-hero"><div class="wrap"><span class="eyebrow">Start a project</span><h1>Tell us what’s worth capturing.</h1><p>No public package ladder and no need to know the perfect deliverables yet. Share the essentials and we’ll shape the visual approach around the job.</p></div></header>
-<main>
-<section class="section" id="project-form">
-  <div class="wrap contact-layout">
-    <form class="form-card reveal" id="projectForm">
-      <input type="hidden" name="access_key" value="55302ff4-e47f-474f-ba77-1d18e28bd3ff">
-      <input type="hidden" name="subject" value="New project enquiry | SkyLuxe Media">
-      <input type="hidden" name="from_name" value="SkyLuxe Media Website">
-      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-      <span class="eyebrow">Project details</span><h2 style="font-size:2.6rem;margin:.7rem 0 1.5rem">A few details are enough to begin.</h2>
-      <div class="form-grid">
-        <div class="field"><label for="name">Name *</label><input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name"></div>
-        <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com"></div>
-        <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx"></div>
-        <div class="field"><label for="service">What are we creating? *</label>
-          <select id="service" name="service" required>
-            <option value="" disabled selected>Select a service</option>
-            <option>Event photography</option>
-            <option>Property &amp; interior photography</option>
-            <option>Business / brand content</option>
-            <option>Short film / reel</option>
-            <option>Project / progress content</option>
-            <option>Airbnb / short-stay visuals</option>
-            <option>Aerial photography</option>
-            <option>Roof / solar documentation</option>
-            <option>Custom / not sure yet</option>
-          </select>
-        </div>
-        <div class="field full"><label for="location">Location / suburb *</label><input id="location" name="location" type="text" required placeholder="Suburb, venue or project address"></div>
-        <div class="field"><label for="date">Preferred date</label><input id="date" name="preferred_date" type="date"></div>
-        <div class="field"><label for="coverage">Preferred output</label>
-          <select id="coverage" name="coverage">
-            <option>Not sure yet</option><option>Photography only</option><option>Short film / reel only</option><option>Photography + short film / reel</option><option>Photography + aerial coverage</option><option>Progress / recurring coverage</option><option>Custom</option>
-          </select>
-        </div>
-        <div class="form-hint" id="serviceHint">Tell us what you are trying to capture and we’ll recommend the right approach.</div>
-        <div class="field full"><label for="message">Project details *</label><textarea id="message" name="message" required placeholder="What is happening, what matters most, timing, must-capture details, intended use and anything we should know about access."></textarea></div>
-        <div class="form-row"><button class="btn btn-gold" id="submitBtn" type="submit">Send Project Enquiry</button><p class="form-status" id="formStatus">Send the essentials and we’ll take it from there.</p></div>
-      </div>
-    </form>
-    <aside class="contact-card reveal">
-      <span class="eyebrow">Direct contact</span>
-      <div class="contact-line"><small>Email</small><a href="mailto:hello@skyluxemedia.com.au">hello@skyluxemedia.com.au</a></div>
-      <div class="contact-line"><small>Phone</small><a href="tel:+61450170709">0450 170 709</a></div>
-      <div class="contact-line"><small>Instagram</small><a href="https://www.instagram.com/skyluxemediavisuals/" target="_blank" rel="noopener">@skyluxemediavisuals</a></div>
-      <div class="contact-line"><small>Service area</small><span>Brisbane &amp; South East Queensland</span></div>
-      <p class="contact-note">Aerial photography is available where appropriate and is subject to airspace, weather, location access and site-safety requirements.</p>
+<header class="contact-hero">
+  <div class="hero-in">
+    <div class="hero-copy">
+      <span class="eyebrow">Start a project</span>
+      <h1>Tell us what’s <span>worth capturing.</span></h1>
+      <p>Event, property, project or business — share the essentials and SkyLuxe Media will shape the photography or film around what you actually need. No public packages, no one-size-fits-all pricing. Just a tailored quote.</p>
+    </div>
+
+    <aside class="hero-aside">
+      <small>SKYLUXE MEDIA · BRISBANE</small>
+      <strong>Photography.<br>Film.<br>Stories.</strong>
+      <p>Brisbane and South East Queensland. Photography, short-form film and aerial coverage are shaped around the needs of each job.</p>
     </aside>
   </div>
+</header>
+
+<main>
+<section class="quote-section" id="quote">
+  <div class="container">
+    <div class="quote-top">
+      <div class="reveal">
+        <span class="kicker">Request a quote</span>
+        <h2 style="margin-top:.85rem">A few details are enough to start.</h2>
+      </div>
+      <p class="reveal">You do not need to know the exact package or deliverables. Tell us what you are trying to capture, where it is, and when you need it. We’ll recommend a practical scope and send a tailored quote.</p>
+    </div>
+
+    <div class="quote-shell">
+      <form class="form-card reveal" id="cform">
+        <input type="hidden" name="access_key" value="55302ff4-e47f-474f-ba77-1d18e28bd3ff">
+        <input type="hidden" name="subject" value="New quote request | SkyLuxe Media">
+        <input type="hidden" name="from_name" value="SkyLuxe Media Website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-intro">
+          <div>
+            <span class="kicker">Project details</span>
+            <h3 style="margin-top:.65rem">Let’s build the right scope.</h3>
+          </div>
+          <p>Fields marked with <span class="req">*</span> are required.</p>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Name <span class="req">*</span></label>
+            <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" placeholder="you@email.com" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="04xx xxx xxx" autocomplete="tel">
+          </div>
+
+          <div class="field">
+            <label for="service">Service needed <span class="req">*</span></label>
+            <select id="service" name="service" required>
+              <option value="" selected disabled>Select a service</option>
+              <option>Event photography</option>
+              <option>Property &amp; interior photography</option>
+              <option>Business / brand content</option>
+              <option>Short film / reel</option>
+              <option>Project / progress content</option>
+              <option>Airbnb / short-stay visuals</option>
+              <option>Aerial photography</option>
+              <option>Roof / solar documentation</option>
+              <option>Custom / not sure yet</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="location">Location / suburb <span class="req">*</span></label>
+            <input id="location" name="location" type="text" placeholder="Suburb, venue or project address" required>
+          </div>
+
+          <div class="field">
+            <label for="date">Preferred date</label>
+            <input id="date" name="preferred_date" type="date">
+          </div>
+
+          <div class="field">
+            <label for="coverage">Coverage / deliverables</label>
+            <select id="coverage" name="coverage">
+              <option value="" selected>Not sure yet</option>
+              <option>Photography only</option>
+              <option>Photography + aerial coverage</option>
+              <option>Photography + short reel</option>
+              <option>Short film / reel only</option>
+              <option>Progress / recurring coverage</option>
+              <option>Custom</option>
+            </select>
+          </div>
+
+          <div class="service-hint" id="serviceHint">
+            Share anything useful — what you want photographed, your timing, where the content will be used, and any must-capture details.
+          </div>
+
+          <div class="field full">
+            <label for="message">Project details <span class="req">*</span></label>
+            <textarea id="message" name="message" placeholder="For example: what the project or event is, approximate timing, the main shots you need, deadline, and anything we should know about access." required></textarea>
+          </div>
+
+          <div class="submit-row">
+            <button class="btn btn-bronze" id="submitBtn" type="submit">Send Enquiry</button>
+            <p class="form-status" id="formStatus">Your enquiry will be sent securely to SkyLuxe Media.</p>
+          </div>
+
+          <p class="form-fineprint">By submitting this form, you agree to be contacted about this enquiry. Your details are used only to respond to your request.</p>
+        </div>
+      </form>
+
+      <aside class="side-stack">
+        <div class="side-card reveal">
+          <span class="side-kicker">Direct contact</span>
+
+          <div class="contact-row">
+            <small>Email</small>
+            <a href="mailto:hello@skyluxemedia.com.au">hello@skyluxemedia.com.au</a>
+          </div>
+
+          <div class="contact-row">
+            <small>Phone</small>
+            <a href="tel:+61450170709">0450 170 709</a>
+          </div>
+
+          <div class="contact-row">
+            <small>Instagram</small>
+            <a href="https://www.instagram.com/skyluxemediavisuals/" target="_blank" rel="noopener">@skyluxemediavisuals</a>
+          </div>
+
+          <div class="contact-row">
+            <small>Service area</small>
+            <span>Brisbane &amp; South East Queensland</span>
+          </div>
+
+          <p class="drone-note">Aerial photography is available where appropriate and is subject to airspace, weather, location access and site-safety requirements.</p>
+        </div>
+
+        <div class="side-card light reveal">
+          <span class="side-kicker">Useful information to include</span>
+          <ul class="need-list">
+            <li><b>01</b><span><strong>What:</strong> property, event, project, installation or business content.</span></li>
+            <li><b>02</b><span><strong>Where:</strong> suburb, venue or project address.</span></li>
+            <li><b>03</b><span><strong>When:</strong> preferred date, event timing or project deadline.</span></li>
+            <li><b>04</b><span><strong>Output:</strong> photos, aerials, reel, progress coverage or a mix.</span></li>
+            <li><b>05</b><span><strong>Important details:</strong> access, must-capture moments, special requirements or usage.</span></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
 </section>
-<section class="section-sm paper2"><div class="wrap"><div class="process-grid">
-  <article class="process-card reveal"><span>1</span><h3>We review the idea</h3><p>We look at the subject, location, timing and intended use.</p></article>
-  <article class="process-card reveal"><span>2</span><h3>We shape the scope</h3><p>We recommend the coverage that makes sense and provide a tailored quote.</p></article>
-  <article class="process-card reveal"><span>3</span><h3>We plan the shoot</h3><p>Timing, access and any aerial requirements are confirmed before capture day.</p></article>
-  <article class="process-card reveal"><span>4</span><h3>We create and deliver</h3><p>The final content is edited for the channels and purpose agreed in the brief.</p></article>
-</div></div></section>
+
+<section class="after-quote">
+  <div class="container">
+    <div class="after-head reveal">
+      <span class="kicker">What happens next</span>
+      <h2 style="margin-top:.85rem">Simple from enquiry to delivery.</h2>
+    </div>
+
+    <div class="after-grid">
+      <article class="after-item reveal">
+        <span>01 · REVIEW</span>
+        <h3>We review the brief</h3>
+        <p>Your location, timing, requested coverage and intended use are considered before the scope is suggested.</p>
+      </article>
+
+      <article class="after-item reveal">
+        <span>02 · QUOTE</span>
+        <h3>You receive a tailored quote</h3>
+        <p>The quote is shaped around the actual job rather than forcing the project into a fixed public package.</p>
+      </article>
+
+      <article class="after-item reveal">
+        <span>03 · PLAN</span>
+        <h3>We lock in the shoot</h3>
+        <p>Once confirmed, we organise timing, access and any drone planning needed before capture day.</p>
+      </article>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
-  <div class="wrap footer-in">
-    <a href="index.html"><img src="assets/skyluxe-logo-nav.png" alt="SkyLuxe Media"></a>
+  <div class="footer-in">
+    <a href="index.html" aria-label="SkyLuxe Media home">
+      <img src="assets/skyluxe-logo-nav.png" alt="SkyLuxe Media">
+    </a>
+
     <p>© 2026 SkyLuxe Media · Photography, film &amp; visual media · Brisbane, Australia</p>
+
     <div class="footer-links">
-      <a href="portfolio.html">Work</a>
+      <a href="index.html#services">Services</a>
+      <a href="portfolio.html">Portfolio</a>
       <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
       <a href="https://www.instagram.com/skyluxemediavisuals/" target="_blank" rel="noopener">Instagram</a>
     </div>
   </div>
 </footer>
 
-<script src="site.js"></script>
-</body></html>
+<script>
+(function(){
+  'use strict';
+
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+
+  if (burger && menu) {
+    burger.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    Array.prototype.forEach.call(menu.querySelectorAll('a'), function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        burger.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(revealEls, function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12});
+    Array.prototype.forEach.call(revealEls, function(el){ io.observe(el); });
+  }
+
+  var service = document.getElementById('service');
+  var hint = document.getElementById('serviceHint');
+
+  var hints = {
+    'Property & interior photography':
+      'Helpful details: property address, whether it is occupied, access instructions, key features to highlight and when you need the final images.',
+    'Event photography':
+      'Helpful details: event type, date, venue, start and finish time, approximate coverage hours, important people or moments, and whether you also want a short highlight reel.',
+    'Short film / reel':
+      'Helpful details: what the reel is promoting, location, preferred orientation/platform, important shots and any deadline.',
+    'Project / progress content':
+      'Helpful details: site address, current project stage, frequency of coverage, areas to document and whether the content is for internal progress, clients or marketing.',
+    'Roof / solar documentation':
+      'Helpful details: site address, roof or installation scope, access requirements, specific areas to document and whether the output is for records, clients or marketing.',
+    'Airbnb / short-stay visuals':
+      'Helpful details: property address, standout features, outdoor areas, nearby location highlights and whether you need photography, a reel or aerial coverage.',
+    'Aerial photography':
+      'Helpful details: location, what you need shown from above, intended use, access and any timing requirements.',
+    'Business / brand content':
+      'Helpful details: business location, what you want to promote, where the content will be used and the main products, services or spaces to feature.',
+    'Custom / not sure yet':
+      'Tell us what you are trying to achieve. SkyLuxe can recommend a practical mix of photography, aerial coverage and short-form video.'
+  };
+
+  if (service && hint) {
+    service.addEventListener('change', function(){
+      hint.textContent = hints[service.value] || 'Share anything useful — what you want photographed, your timing, where the content will be used, and any must-capture details.';
+    });
+  }
+
+  var form = document.getElementById('cform');
+  var status = document.getElementById('formStatus');
+  var submitBtn = document.getElementById('submitBtn');
+
+  if (form && status) {
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+
+      status.className = 'form-status';
+      status.textContent = 'Sending your enquiry...';
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      try {
+        var formData = new FormData(form);
+        var response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        var result = await response.json();
+
+        if (result.success) {
+          status.className = 'form-status success';
+          status.textContent = 'Thank you — your enquiry has been sent. SkyLuxe Media will be in touch.';
+          form.reset();
+          if (hint) hint.textContent = 'Share anything useful — what you want photographed, your timing, where the content will be used, and any must-capture details.';
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        status.className = 'form-status error';
+        status.textContent = 'Something went wrong. Please email hello@skyluxemedia.com.au directly.';
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Enquiry';
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
